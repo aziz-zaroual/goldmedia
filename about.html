@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            color: #333;
         }
 
         header {
@@ -22,17 +23,11 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
         }
 
         .logo-container img {
-            height: 60px;
-            /* Réduit la taille du logo */
+            height: 50px;
             width: auto;
-            transition: height 0.3s;
         }
 
         nav ul {
@@ -59,46 +54,35 @@
         }
 
         main {
-            padding: 80px 20px 20px;
-            max-width: 1200px;
-            margin: auto;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             color: #292929;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5em;
         }
 
-        .section {
-            background: #ffffff;
-            padding: 40px 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .section h2 {
-            color: #292929;
-            margin-bottom: 20px;
-            font-size: 2em;
-            text-align: center;
-        }
-
-        .section p {
-            color: #333;
+        p {
+            font-size: 18px;
             line-height: 1.6;
-            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .team-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 40px;
         }
 
         .team-member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
             text-align: center;
-            transition: transform 0.3s;
+            max-width: 300px;
         }
 
         .team-member img {
@@ -107,34 +91,31 @@
             height: 150px;
             object-fit: cover;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
         }
 
-        .team-member h3 {
-            margin-top: 10px;
-            color: #292929;
-            font-size: 1.2em;
-        }
-
-        .team-member p {
-            color: #666;
-        }
-
-        .team-member:hover {
+        .team-member:hover img {
             transform: scale(1.05);
         }
 
-        footer {
-            background-color: #292929;
-            color: #ffffff;
-            text-align: center;
-            padding: 15px 20px;
-            margin-top: 40px;
+        .team-member h3 {
+            margin-top: 15px;
+            color: #292929;
         }
 
-        @media (max-width: 768px) {
-            .team-member {
-                margin: 10px;
-            }
+        .team-member p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #292929;
+            color: #fece0a;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -154,56 +135,26 @@
         </nav>
     </header>
     <main>
-        <section class="section">
-            <h1>À propos de Gold Media</h1>
-            <p>Gold Media est une société spécialisée dans la gestion des médias numériques. Nous fournissons des
-                solutions
-                innovantes pour améliorer la présence en ligne de nos clients. Notre objectif est de vous offrir les
-                meilleurs outils
-                et stratégies pour atteindre vos objectifs de communication et de marketing.</p>
-        </section>
+        <h1>À propos de Gold Media</h1>
+        <p>Gold Media est une société spécialisée dans la gestion des médias numériques. Nous fournissons des solutions
+            innovantes pour améliorer la présence en ligne de nos clients, en mettant l'accent sur la qualité et
+            l'efficacité.</p>
 
-        <section class="section">
-            <h2>Notre Histoire</h2>
-            <p>Depuis notre création, nous avons constamment évolué pour rester à la pointe de l'innovation dans le
-                domaine des médias numériques.
-                Avec une équipe de professionnels passionnés, nous avons su nous adapter aux besoins changeants de nos
-                clients tout en
-                offrant des solutions de qualité supérieure.</p>
-        </section>
-
-        <section class="section">
-            <h2>Notre Vision</h2>
-            <p>Notre vision est de devenir un leader mondial dans le domaine de la gestion des médias numériques, en
-                fournissant des
-                services exceptionnels qui permettent à nos clients de se démarquer dans un environnement en constante
-                évolution.</p>
-        </section>
-
-        <section class="section">
-            <h2>Notre Mission</h2>
-            <p>Nous nous engageons à offrir des solutions innovantes et personnalisées pour répondre aux besoins
-                spécifiques de chaque
-                client, tout en nous efforçant de dépasser leurs attentes et de contribuer à leur succès.</p>
-        </section>
-
-        <section class="section">
-            <h2>Notre Équipe</h2>
+        <section class="team-section">
             <div class="team-member">
-                <img src="images/team-member1.jpg" alt="Membre de l'équipe 1">
-                <h3>Jean Dupont</h3>
-                <p>Directeur Général</p>
-                <p>Jean est le fondateur de Gold Media avec plus de 20 ans d'expérience dans le domaine des médias
-                    numériques.</p>
+                <img src="images/team-member1.jpg" alt="Mohammed Derraji">
+                <h3>Mohammed Derraji</h3>
+                <p>Fondateur de Gold Media avec plus de 14 ans d'expérience dans le domaine des bâtiments, de la gestion
+                    immobilière et de la gestion des biens. Mohammed Derraji est un leader visionnaire, déterminé à
+                    fournir des solutions de gestion de haute qualité à ses clients.</p>
             </div>
             <div class="team-member">
-                <img src="images/team-member2.jpg" alt="Membre de l'équipe 2">
-                <h3>Marie Martin</h3>
-                <p>Responsable Marketing</p>
-                <p>Marie est une experte en stratégie marketing, spécialisée dans la création de campagnes numériques
-                    efficaces.</p>
+                <img src="images/team-member2.jpg" alt="Dr Fikri">
+                <h3>Dr Fikri</h3>
+                <p>Responsable marketing et détenteur d'un doctorat dans son domaine. Dr Fikri est passionné par
+                    l'innovation et l'amélioration continue. Son expertise en marketing est essentielle pour la
+                    croissance et le succès de Gold Media.</p>
             </div>
-            <!-- Ajoutez plus de membres de l'équipe ici -->
         </section>
     </main>
     <footer>
