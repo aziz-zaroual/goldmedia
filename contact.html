@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@
             background-color: #f5f5f5;
             overflow-x: hidden;
         }
-
         header {
             background-color: #292929;
             color: #fece0a;
@@ -24,35 +22,29 @@
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .logo-container img {
             height: 70px;
             width: auto;
         }
-
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             display: flex;
         }
-
         nav ul li {
             margin: 0 15px;
         }
-
         nav ul li a {
             color: #fece0a;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s, transform 0.3s;
         }
-
         nav ul li a:hover {
             color: #ffffff;
             transform: scale(1.1);
         }
-
         .intro-section {
             text-align: center;
             padding: 50px 20px;
@@ -63,17 +55,14 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .intro-section h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
-
         .intro-section p {
             font-size: 1.2rem;
             margin-bottom: 20px;
         }
-
         .dynamic-background {
             position: absolute;
             top: 0;
@@ -86,36 +75,19 @@
             opacity: 0.3;
             animation: backgroundChange 16s infinite;
         }
-
         @keyframes backgroundChange {
-            0% {
-                background-image: url('images/hotel.jpg');
-            }
-
-            25% {
-                background-image: url('images/real-estate.jpg');
-            }
-
-            50% {
-                background-image: url('images/car-rental.jpg');
-            }
-
-            75% {
-                background-image: url('images/digital-marketing.jpg');
-            }
-
-            100% {
-                background-image: url('images/hotel.jpg');
-            }
+            0% { background-image: url('images/hotel.jpg'); }
+            25% { background-image: url('images/real-estate.jpg'); }
+            50% { background-image: url('images/car-rental.jpg'); }
+            75% { background-image: url('images/digital-marketing.jpg'); }
+            100% { background-image: url('images/hotel.jpg'); }
         }
-
         .specialties {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             padding: 50px 20px;
         }
-
         .specialty {
             flex: 1;
             min-width: 250px;
@@ -128,24 +100,20 @@
             position: relative;
             overflow: hidden;
         }
-
         .specialty img {
             width: 100%;
             border-radius: 10px;
             height: auto;
         }
-
         .specialty h2 {
             font-size: 1.5rem;
             margin: 20px 0;
             color: #292929;
         }
-
         .specialty p {
             font-size: 1rem;
             color: #555;
         }
-
         footer {
             background-color: #292929;
             color: #fece0a;
@@ -157,7 +125,6 @@
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo-container">
@@ -176,8 +143,7 @@
         <section class="intro-section">
             <div class="dynamic-background"></div>
             <h1>Bienvenue sur Gold Media</h1>
-            <p>Gold Media by Derraji est une société spécialisée dans le marketing digital depuis 2010. Nous offrons des
-                solutions innovantes pour améliorer la présence en ligne de nos clients.</p>
+            <p>Gold Media by Derraji est une société spécialisée dans le marketing digital depuis 2010. Nous offrons des solutions innovantes pour améliorer la présence en ligne de nos clients.</p>
         </section>
         <section class="specialties">
             <div class="specialty">
@@ -206,5 +172,4 @@
         <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
 </body>
-
 </html>
