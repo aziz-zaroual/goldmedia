@@ -111,13 +111,79 @@
 
         .about,
         .cta,
-        .why-choose,
+        .why-choose {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
         .tools {
             padding: 20px;
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 20px;
+            text-align: center;
+        }
+
+        .tool-image {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .tool-image img {
+            width: 100%;
+            /* Assure que l'image s'ajuste correctement */
+            max-width: 100%;
+            /* Assure que l'image ne dépasse pas la largeur du conteneur */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tool-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .specialty {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .specialty:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .specialty img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .specialty img.loading {
+            opacity: 0.5;
+        }
+
+        .specialty h2 {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            color: #ffffff;
+            font-size: 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .charts-container {
@@ -226,64 +292,27 @@
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
-
-        .specialty {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .specialty:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .specialty img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: opacity 0.3s;
-        }
-
-        .specialty img.loading {
-            opacity: 0.5;
-        }
-
-        .specialty h2 {
-            position: absolute;
-            bottom: 10px;
-            left: 20px;
-            color: #ffffff;
-            font-size: 1.5rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-        }
     </style>
 </head>
 
 <body>
     <header id="header">
         <div class="logo-container">
-            <img src="images/logo.jpg" alt="Gold Media Logo" class="logo">
+            <img src="images/logo.png" alt="Gold Media">
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="partners.html">Chiffres et Partenaires</a></li>
-                <li><a href="contact.html">Contactez-nous</a></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Nos Services</a></li>
+                <li><a href="#">À Propos</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="hero">
-            <h1>Bienvenue sur Gold Media</h1>
-            <p>Gold Media by Derraji est une société spécialisée dans le marketing digital depuis 2010. Nous offrons des
-                solutions personnalisées pour vous aider à atteindre vos objectifs commerciaux.</p>
+            <h1>Bienvenue chez Gold Media</h1>
+            <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.</p>
         </section>
         <section class="about">
             <h2>À Propos de Nous</h2>
@@ -314,11 +343,6 @@
                 <li>Analyse des Réseaux Sociaux</li>
                 <li>Optimisation des Réservations sur Plateformes Mondiales</li>
             </ul>
-            <div class="tool-image">
-                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales">
-                <p>Nous optimisons la gestion des réservations sur des plateformes mondiales telles que Booking et
-                    Airbnb, permettant ainsi à nos clients de maximiser leur visibilité et leur efficacité.</p>
-            </div>
         </section>
         <section class="specialties">
             <div class="specialty">
@@ -332,6 +356,13 @@
             <div class="specialty">
                 <img src="images/real-estate.jpg" alt="Outils pour l'Immobilier" class="specialty-image">
                 <h2>Outils pour l'Immobilier</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales"
+                    class="specialty-image">
+                <h2>Optimisation des Réservations sur Plateformes Mondiales</h2>
+                <p>Nous optimisons la gestion des réservations sur des plateformes mondiales telles que Booking et
+                    Airbnb, permettant ainsi à nos clients de maximiser leur visibilité et leur efficacité.</p>
             </div>
         </section>
         <section class="charts-container">
