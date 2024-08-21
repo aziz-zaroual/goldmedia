@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Gold Media</title>
+    <title>Contact - Gold Media</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
@@ -11,8 +12,8 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-            overflow-x: hidden;
         }
+
         header {
             background-color: #292929;
             color: #fece0a;
@@ -22,109 +23,122 @@
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .logo-container img {
-            height: 70px;
+            height: 50px;
             width: auto;
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             display: flex;
         }
+
         nav ul li {
             margin: 0 15px;
         }
+
         nav ul li a {
             color: #fece0a;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s, transform 0.3s;
         }
+
         nav ul li a:hover {
             color: #ffffff;
             transform: scale(1.1);
         }
-        .intro-section {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(45deg, #fece0a, #292929);
-            color: #ffffff;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .intro-section h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .intro-section p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        .dynamic-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0.3;
-            animation: backgroundChange 16s infinite;
-        }
-        @keyframes backgroundChange {
-            0% { background-image: url('images/hotel.jpg'); }
-            25% { background-image: url('images/real-estate.jpg'); }
-            50% { background-image: url('images/car-rental.jpg'); }
-            75% { background-image: url('images/digital-marketing.jpg'); }
-            100% { background-image: url('images/hotel.jpg'); }
-        }
-        .specialties {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            padding: 50px 20px;
-        }
-        .specialty {
-            flex: 1;
-            min-width: 250px;
-            margin: 20px;
+
+        .contact-section {
             background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .contact-section h2 {
             text-align: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        .specialty img {
-            width: 100%;
-            border-radius: 10px;
-            height: auto;
-        }
-        .specialty h2 {
-            font-size: 1.5rem;
-            margin: 20px 0;
             color: #292929;
+            margin-bottom: 20px;
         }
-        .specialty p {
-            font-size: 1rem;
-            color: #555;
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
         }
-        footer {
+
+        .contact-form label {
+            margin: 10px 0 5px;
+            color: #292929;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #fece0a;
+            box-shadow: 0 0 5px rgba(254, 206, 10, 0.5);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button {
             background-color: #292929;
             color: #fece0a;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #fece0a;
+            color: #292929;
+            transform: scale(1.05);
+        }
+
+        .contact-form .response {
+            display: none;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
             text-align: center;
-            padding: 15px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            font-weight: bold;
+        }
+
+        .contact-form .response.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .contact-form .response.error {
+            background-color: #f8d7da;
+            color: #721c24;
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo-container">
@@ -140,36 +154,53 @@
         </nav>
     </header>
     <main>
-        <section class="intro-section">
-            <div class="dynamic-background"></div>
-            <h1>Bienvenue sur Gold Media</h1>
-            <p>Gold Media by Derraji est une société spécialisée dans le marketing digital depuis 2010. Nous offrons des solutions innovantes pour améliorer la présence en ligne de nos clients.</p>
-        </section>
-        <section class="specialties">
-            <div class="specialty">
-                <img src="images/hotel.jpg" alt="Secteur Hôtellerie">
-                <h2>Hôtellerie</h2>
-                <p>Augmentation des réservations et gestion optimisée grâce à nos solutions personnalisées.</p>
-            </div>
-            <div class="specialty">
-                <img src="images/real-estate.jpg" alt="Secteur Immobilier">
-                <h2>Immobilier</h2>
-                <p>Solutions de marketing pour augmenter les ventes et les locations dans le secteur immobilier.</p>
-            </div>
-            <div class="specialty">
-                <img src="images/car-rental.jpg" alt="Secteur Location de Voitures">
-                <h2>Location de Voitures</h2>
-                <p>Augmentation des réservations et optimisation des services de location de voitures.</p>
-            </div>
-            <div class="specialty">
-                <img src="images/digital-marketing.jpg" alt="Marketing Digital">
-                <h2>Marketing Digital</h2>
-                <p>Stratégies de marketing digital innovantes pour maximiser votre présence en ligne.</p>
-            </div>
+        <section class="contact-section">
+            <h2>Contactez-nous</h2>
+            <form class="contact-form" id="contactForm">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Envoyer</button>
+
+                <div class="response" id="responseMessage"></div>
+            </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            // Example of sending form data to a server
+            fetch('https://example.com/submit', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('responseMessage').textContent = 'Votre message a été envoyé avec succès!';
+                    document.getElementById('responseMessage').className = 'response success';
+                } else {
+                    document.getElementById('responseMessage').textContent = 'Une erreur est survenue, veuillez réessayer.';
+                    document.getElementById('responseMessage').className = 'response error';
+                }
+                document.getElementById('responseMessage').style.display = 'block';
+                document.getElementById('contactForm').reset();
+            }).catch(() => {
+                document.getElementById('responseMessage').textContent = 'Une erreur est survenue, veuillez réessayer.';
+                document.getElementById('responseMessage').className = 'response error';
+                document.getElementById('responseMessage').style.display = 'block';
+            });
+        });
+    </script>
 </body>
+
 </html>
