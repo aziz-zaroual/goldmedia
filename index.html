@@ -12,6 +12,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         header {
@@ -22,11 +23,21 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        header.scrolled {
+            background-color: #1f1f1f;
         }
 
         .logo-container img {
-            height: 50px;
+            height: 60px;
             width: auto;
+            transition: height 0.3s;
         }
 
         nav ul {
@@ -53,7 +64,8 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #fece0a 0%, #292929 100%);
+            position: relative;
+            background: url('images/hero-background.jpg') no-repeat center center/cover;
             color: #ffffff;
             padding: 60px 20px;
             text-align: center;
@@ -62,14 +74,29 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            z-index: 1;
+        }
+
         .hero h1 {
             font-size: 2.5rem;
             margin: 0;
+            z-index: 2;
+            font-weight: 700;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin: 20px 0 0;
+            z-index: 2;
         }
 
         .section-header {
@@ -159,11 +186,47 @@
             margin: 10px 0;
             font-size: 1.1rem;
         }
+
+        .specialty {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .specialty:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .specialty img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .specialty img.loading {
+            opacity: 0.5;
+        }
+
+        .specialty h2 {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            color: #ffffff;
+            font-size: 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="logo-container">
             <img src="images/logo.jpg" alt="Gold Media Logo" class="logo">
         </div>
@@ -210,14 +273,18 @@
             <h2>Outils que Nous Développons</h2>
             <p>Nous proposons une gamme d'outils adaptés à différents secteurs pour optimiser les performances marketing
                 :</p>
-            <ul>
-                <li><strong>Gestion des Réservations Hôtelières:</strong> Outils avancés pour améliorer la gestion et
-                    l'optimisation des réservations.</li>
-                <li><strong>Solutions de Location de Voitures:</strong> Plateformes de réservation flexibles et
-                    efficaces pour le secteur de la location de voitures.</li>
-                <li><strong>Gestion de Portefeuilles Immobiliers:</strong> Outils pour gérer les propriétés et maximiser
-                    les revenus.</li>
-            </ul>
+            <div class="specialty">
+                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières" class="loading">
+                <h2>Gestion des Réservations Hôtelières</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/car-rental.jpg" alt="Solutions de Location de Voitures" class="loading">
+                <h2>Solutions de Location de Voitures</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/real-estate.jpg" alt="Gestion de Portefeuilles Immobiliers" class="loading">
+                <h2>Gestion de Portefeuilles Immobiliers</h2>
+            </div>
         </section>
         <section class="graphs">
             <div class="section-header">
@@ -404,6 +471,21 @@
         }
 
         setInterval(updateCharts, 3000);
+
+        // Update header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Preload images
+        document.querySelectorAll('.specialty img').forEach(img => {
+            img.onload = () => img.classList.remove('loading');
+        });
     </script>
 </body>
 
