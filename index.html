@@ -67,11 +67,14 @@
             position: relative;
             background: url('images/hero-background.jpg') no-repeat center center/cover;
             color: #ffffff;
-            padding: 60px 20px;
+            padding: 100px 20px 60px;
+            /* Ajustement du padding pour ajouter un espace */
             text-align: center;
             border-radius: 10px;
             margin: 40px 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 80px;
+            /* Ajout d'un espace en haut */
         }
 
         .hero::before {
@@ -140,6 +143,8 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s, transform 0.3s;
+            margin-bottom: 40px;
+            /* Ajout de marge en bas */
         }
 
         .cta-button:hover {
@@ -152,7 +157,10 @@
             background-color: #292929;
             color: #ffffff;
             text-align: center;
-            padding: 10px 20px;
+            padding: 20px 20px;
+            /* Ajustement du padding pour agrandir la barre */
+            margin-top: 40px;
+            /* Ajout d'une marge en haut */
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -185,6 +193,18 @@
         .tools ul li {
             margin: 10px 0;
             font-size: 1.1rem;
+        }
+
+        .tool-image {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .tool-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .specialty {
@@ -261,18 +281,32 @@
             <ul>
                 <li><strong>Expertise Professionnelle:</strong> Une équipe d'experts avec des années d'expérience dans
                     le marketing digital.</li>
-                <li><strong>Solutions Personnalisées:</strong> Des stratégies sur mesure pour répondre aux besoins
-                    uniques de chaque client.</li>
-                <li><strong>Technologie Avancée:</strong> Utilisation des dernières technologies pour maximiser l'impact
-                    des campagnes.</li>
-                <li><strong>Résultats Mesurables:</strong> Des solutions basées sur des données pour assurer des
-                    résultats concrets et mesurables.</li>
+                <li><strong>Solutions Personnalisées:</strong> Des stratégies adaptées aux besoins spécifiques de
+                    chaque client.</li>
+                <li><strong>Technologies Avancées:</strong> Utilisation des dernières technologies et outils de
+                    marketing.</li>
+                <li><strong>Résultats Mesurables:</strong> Analyse approfondie et reporting des performances.</li>
             </ul>
         </section>
         <section class="tools">
-            <h2>Outils que Nous Développons</h2>
-            <p>Nous proposons une gamme d'outils adaptés à différents secteurs pour optimiser les performances marketing
-                :</p>
+            <h2>Nos Outils</h2>
+            <p>Nous utilisons une gamme d'outils et de technologies pour offrir les meilleurs résultats à nos clients.
+            </p>
+            <ul>
+                <li>Google Analytics</li>
+                <li>SEO Avancé</li>
+                <li>Publicité en Ligne</li>
+                <li>Outils de Marketing Automation</li>
+                <li>Analyse des Réseaux Sociaux</li>
+                <li>Optimisation des Réservations sur Plateformes Mondiales</li>
+            </ul>
+            <div class="tool-image">
+                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales">
+                <p>Nous optimisons la gestion des réservations sur des plateformes mondiales telles que Booking et
+                    Airbnb, permettant ainsi à nos clients de maximiser leur visibilité et leur efficacité.</p>
+            </div>
+        </section>
+        <section class="specialties">
             <div class="specialty">
                 <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières" class="specialty-image">
                 <h2>Gestion des Réservations Hôtelières</h2>
@@ -286,12 +320,6 @@
                 <h2>Outils pour l'Immobilier</h2>
             </div>
         </section>
-        <section class="cta">
-            <h2>Prêt à Élever Votre Présence en Ligne?</h2>
-            <p>Contactez-nous aujourd'hui pour découvrir comment nous pouvons vous aider à atteindre vos objectifs
-                marketing.</p>
-            <a href="contact.html" class="cta-button">Contactez-nous</a>
-        </section>
         <section class="charts-container">
             <h2 class="section-header">Chiffres et Statistiques</h2>
             <div class="chart-container">
@@ -301,9 +329,15 @@
                 <canvas id="chart2"></canvas>
             </div>
         </section>
+        <section class="cta">
+            <h2>Prêt à Élever Votre Présence en Ligne?</h2>
+            <p>Contactez-nous aujourd'hui pour découvrir comment nous pouvons vous aider à atteindre vos objectifs
+                marketing.</p>
+            <a href="contact.html" class="cta-button">Contactez-nous</a>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2023 Gold Media by Derraji. Tous droits réservés.</p>
+        <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
     <script>
         const header = document.getElementById('header');
