@@ -1,5 +1,20 @@
 /* styles.css */
 
+/* Réinitialisation de quelques styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Couleur de fond du corps */
+    margin: 0;
+    padding: 0;
+}
+
 /* Style pour le header */
 header {
     background-color: #292929; /* Couleur de fond du header */
@@ -8,22 +23,24 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap; /* Permet au menu de passer à la ligne sur les petits écrans */
 }
 
 .logo-container {
     display: flex;
     align-items: center;
+    flex: 1;
 }
 
 .logo {
-    height: 50px; /* Ajustez la hauteur du logo selon vos besoins */
+    height: 40px; /* Ajustez la hauteur du logo selon vos besoins */
     width: auto; /* Garder les proportions du logo */
-    margin-right: 20px; /* Espacement entre le logo et le texte */
 }
 
-/* Style pour le menu de navigation */
 nav {
-    flex: 1;
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
 }
 
 nav ul {
@@ -31,33 +48,33 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap; /* Permet au menu de passer à la ligne sur les petits écrans */
 }
 
 nav ul li {
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: #fece0a; /* Couleur du texte des liens */
     text-decoration: none; /* Supprimer le soulignement des liens */
     font-weight: bold; /* Mettre le texte en gras */
+    padding: 5px 10px; /* Espacement autour du texte pour les liens */
+    transition: color 0.3s, background-color 0.3s; /* Effet de transition pour le survol */
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
     color: #ffffff; /* Couleur du texte au survol */
+    background-color: #fece0a; /* Couleur de fond au survol */
+    border-radius: 5px; /* Arrondir les coins du fond */
 }
 
-/* Style pour le contenu */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Couleur de fond du corps */
-    margin: 0;
-    padding: 0;
-}
-
-/* Style pour les sections principales */
+/* Style pour le contenu principal */
 main {
     padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 h1, h2, h3 {
@@ -66,15 +83,77 @@ h1, h2, h3 {
 
 p {
     color: #333333; /* Couleur du texte des paragraphes */
+    line-height: 1.6; /* Hauteur de ligne pour améliorer la lisibilité */
 }
 
-/* Footer Style (si besoin) */
+/* Style pour le formulaire de contact */
+form {
+    display: grid;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form button {
+    background-color: #fece0a;
+    color: #292929;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #e1b700; /* Couleur du bouton au survol */
+}
+
+/* Footer Style */
 footer {
     background-color: #292929;
     color: #ffffff;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    .logo {
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 25px;
+    }
 }
