@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Gold Media</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -23,12 +24,113 @@
         </nav>
     </header>
     <main>
-        <h1>Bienvenue sur Gold Media</h1>
-        <p>Nous sommes ravis de vous accueillir sur notre site. Découvrez nos services et nos partenaires.</p>
+        <section class="hero">
+            <h1>Bienvenue sur Gold Media</h1>
+            <p>Gold Media by Derraji est une société spécialisée dans le marketing digital depuis 2010. Nous offrons des
+                solutions innovantes pour améliorer la présence en ligne de nos clients.</p>
+        </section>
+        <section class="about">
+            <h2>À propos de Nous</h2>
+            <p>Fondée en 2010, Gold Media est dirigée par Mohammed Derraji, un expert en marketing digital avec une
+                vaste expérience dans le domaine. Nous aidons les entreprises à atteindre leurs objectifs numériques
+                grâce à des services sur mesure adaptés à leurs besoins spécifiques.</p>
+            <p>Nous collaborons avec un réseau étendu de partenaires pour offrir des solutions de marketing digital de
+                premier ordre. Découvrez ci-dessous les statistiques de croissance pour nos partenaires dans différents
+                secteurs.</p>
+        </section>
+        <section class="graphs">
+            <h2>Croissance de Nos Partenaires</h2>
+            <div class="chart-container">
+                <canvas id="hotelsChart"></canvas>
+                <h3>Hôtels</h3>
+            </div>
+            <div class="chart-container">
+                <canvas id="carRentalChart"></canvas>
+                <h3>Location de Voitures</h3>
+            </div>
+            <div class="chart-container">
+                <canvas id="realEstateChart"></canvas>
+                <h3>Immobilier</h3>
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Gold Media. Tous droits réservés.</p>
     </footer>
+    <script>
+        const ctxHotels = document.getElementById('hotelsChart').getContext('2d');
+        const ctxCarRental = document.getElementById('carRentalChart').getContext('2d');
+        const ctxRealEstate = document.getElementById('realEstateChart').getContext('2d');
+
+        const hotelsChart = new Chart(ctxHotels, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Croissance des Hôtels',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: '#fece0a',
+                    borderColor: '#292929',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const carRentalChart = new Chart(ctxCarRental, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Croissance Location de Voitures',
+                    data: [8, 15, 10, 20, 12, 17],
+                    borderColor: '#fece0a',
+                    backgroundColor: 'rgba(254, 206, 10, 0.2)',
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const realEstateChart = new Chart(ctxRealEstate, {
+            type: 'pie',
+            data: {
+                labels: ['Commercial', 'Résidentiel', 'Locatif'],
+                datasets: [{
+                    label: 'Croissance Immobilier',
+                    data: [40, 30, 30],
+                    backgroundColor: ['#fece0a', '#ffffff', '#292929']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
