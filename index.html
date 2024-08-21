@@ -18,7 +18,8 @@
         header {
             background-color: #292929;
             color: #fece0a;
-            padding: 10px 20px;
+            padding: 5px 20px;
+            /* Réduit l'épaisseur de la barre de menu */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -35,7 +36,8 @@
         }
 
         .logo-container img {
-            height: 60px;
+            height: 80px;
+            /* Agrandissement du logo */
             width: auto;
             transition: height 0.3s;
         }
@@ -157,8 +159,8 @@
             background-color: #292929;
             color: #ffffff;
             text-align: center;
-            padding: 20px 20px;
-            /* Ajustement du padding pour agrandir la barre */
+            padding: 10px 20px;
+            /* Réduit l'épaisseur de la barre en bas */
             margin-top: 40px;
             /* Ajout d'une marge en haut */
             position: fixed;
@@ -205,6 +207,12 @@
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tool-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .specialty {
@@ -271,18 +279,13 @@
                 vaste expérience dans le domaine. Nous aidons les entreprises à atteindre leurs objectifs numériques
                 grâce à des services sur mesure adaptés à leurs besoins spécifiques.</p>
             <p>Nous collaborons avec un réseau étendu de partenaires pour offrir des solutions de marketing digital de
-                premier ordre. Découvrez ci-dessous les statistiques de croissance pour nos partenaires dans différents
-                secteurs.</p>
+                premier ordre. Découvrez ci-dessous les statistiques de notre impact.</p>
         </section>
         <section class="why-choose">
-            <h2>Pourquoi Nous Choisir?</h2>
-            <p>Gold Media se distingue par son expertise approfondie et son approche innovante dans le marketing
-                digital. Voici quelques raisons pour lesquelles nos clients nous choisissent :</p>
+            <h2>Pourquoi Nous Choisir</h2>
             <ul>
-                <li><strong>Expertise Professionnelle:</strong> Une équipe d'experts avec des années d'expérience dans
-                    le marketing digital.</li>
-                <li><strong>Solutions Personnalisées:</strong> Des stratégies adaptées aux besoins spécifiques de
-                    chaque client.</li>
+                <li><strong>Expertise Personnalisée:</strong> Des stratégies adaptées aux besoins spécifiques de chaque
+                    client.</li>
                 <li><strong>Technologies Avancées:</strong> Utilisation des dernières technologies et outils de
                     marketing.</li>
                 <li><strong>Résultats Mesurables:</strong> Analyse approfondie et reporting des performances.</li>
@@ -303,7 +306,8 @@
             <div class="tool-image">
                 <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales">
                 <p>Nous optimisons la gestion des réservations sur des plateformes mondiales telles que Booking et
-                    Airbnb, permettant ainsi à nos clients de maximiser leur visibilité et leur efficacité.</p>
+                    Airbnb,
+                    permettant ainsi à nos clients de maximiser leur visibilité et leur efficacité.</p>
             </div>
         </section>
         <section class="specialties">
