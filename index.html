@@ -274,217 +274,108 @@
             <p>Nous proposons une gamme d'outils adaptés à différents secteurs pour optimiser les performances marketing
                 :</p>
             <div class="specialty">
-                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières" class="loading">
+                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières" class="specialty-image">
                 <h2>Gestion des Réservations Hôtelières</h2>
             </div>
             <div class="specialty">
-                <img src="images/car-rental.jpg" alt="Solutions de Location de Voitures" class="loading">
-                <h2>Solutions de Location de Voitures</h2>
+                <img src="images/car-rental.jpg" alt="Plateformes de Location de Voitures" class="specialty-image">
+                <h2>Plateformes de Location de Voitures</h2>
             </div>
             <div class="specialty">
-                <img src="images/real-estate.jpg" alt="Gestion de Portefeuilles Immobiliers" class="loading">
-                <h2>Gestion de Portefeuilles Immobiliers</h2>
-            </div>
-        </section>
-        <section class="graphs">
-            <div class="section-header">
-                <h2>Croissance de Nos Partenaires</h2>
-                <p>Voici un aperçu des performances de nos partenaires dans différents secteurs depuis 2018 jusqu'à
-                    2024.</p>
-            </div>
-            <div class="charts-container">
-                <div class="chart-container">
-                    <canvas id="hotelsChart"></canvas>
-                    <h3>Hôtels</h3>
-                </div>
-                <div class="chart-container">
-                    <canvas id="carRentalChart"></canvas>
-                    <h3>Location de Voitures</h3>
-                </div>
-                <div class="chart-container">
-                    <canvas id="realEstateChart"></canvas>
-                    <h3>Immobilier</h3>
-                </div>
+                <img src="images/real-estate.jpg" alt="Outils pour l'Immobilier" class="specialty-image">
+                <h2>Outils pour l'Immobilier</h2>
             </div>
         </section>
         <section class="cta">
-            <h2>Prêt à Améliorer Votre Présence en Ligne?</h2>
-            <p>Contactez-nous dès aujourd'hui pour découvrir comment Gold Media peut transformer votre marketing
-                digital.</p>
+            <h2>Prêt à Élever Votre Présence en Ligne?</h2>
+            <p>Contactez-nous aujourd'hui pour découvrir comment nous pouvons vous aider à atteindre vos objectifs
+                marketing.</p>
             <a href="contact.html" class="cta-button">Contactez-nous</a>
+        </section>
+        <section class="charts-container">
+            <h2 class="section-header">Chiffres et Statistiques</h2>
+            <div class="chart-container">
+                <canvas id="chart1"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart2"></canvas>
+            </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
+        <p>&copy; 2023 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
     <script>
-        // Generate random data for the charts
-        function generateRandomData() {
-            const data = [];
-            for (let i = 0; i < 7; i++) {
-                data.push(Math.floor(Math.random() * 1000) + 100);
-            }
-            return data;
-        }
-
-        function updateChart(chart, data) {
-            chart.data.datasets.forEach((dataset) => {
-                dataset.data = data;
-            });
-            chart.update();
-        }
-
-        const ctxHotels = document.getElementById('hotelsChart').getContext('2d');
-        const ctxCarRental = document.getElementById('carRentalChart').getContext('2d');
-        const ctxRealEstate = document.getElementById('realEstateChart').getContext('2d');
-
-        const hotelsChart = new Chart(ctxHotels, {
-            type: 'line',
-            data: {
-                labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-                datasets: [{
-                    label: 'Croissance des Réservations d’Hôtels (en milliers de dirhams)',
-                    data: generateRandomData(),
-                    borderColor: '#fece0a',
-                    backgroundColor: 'rgba(254, 206, 10, 0.2)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top'
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + 'K MAD';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            color: '#eee'
-                        }
-                    },
-                    y: {
-                        grid: {
-                            color: '#eee'
-                        },
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        const carRentalChart = new Chart(ctxCarRental, {
-            type: 'bar',
-            data: {
-                labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-                datasets: [{
-                    label: 'Croissance des Réservations de Voitures (en milliers de dirhams)',
-                    data: generateRandomData(),
-                    backgroundColor: '#fece0a',
-                    borderColor: '#fece0a',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top'
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + 'K MAD';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            color: '#eee'
-                        }
-                    },
-                    y: {
-                        grid: {
-                            color: '#eee'
-                        },
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        const realEstateChart = new Chart(ctxRealEstate, {
-            type: 'radar',
-            data: {
-                labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-                datasets: [{
-                    label: 'Croissance Immobilier (en milliers de dirhams)',
-                    data: generateRandomData(),
-                    backgroundColor: 'rgba(254, 206, 10, 0.4)',
-                    borderColor: '#fece0a',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top'
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + 'K MAD';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    r: {
-                        grid: {
-                            color: '#eee'
-                        },
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        function updateCharts() {
-            const newData = generateRandomData();
-            updateChart(hotelsChart, newData);
-            updateChart(carRentalChart, newData);
-            updateChart(realEstateChart, newData);
-        }
-
-        setInterval(updateCharts, 3000);
-
-        // Update header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
+        const header = document.getElementById('header');
+        window.onscroll = function () {
+            if (window.pageYOffset > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+        };
+
+        document.querySelectorAll('.specialty-image').forEach(img => {
+            img.classList.add('loading');
+            img.onload = () => {
+                img.classList.remove('loading');
+            };
         });
 
-        // Preload images
-        document.querySelectorAll('.specialty img').forEach(img => {
-            img.onload = () => img.classList.remove('loading');
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Hôtellerie', 'Location de Voitures', 'Immobilier'],
+                datasets: [{
+                    label: 'Croissance (%)',
+                    data: [30, 45, 25],
+                    backgroundColor: [
+                        '#fece0a',
+                        '#292929',
+                        '#fece0a'
+                    ],
+                    borderColor: [
+                        '#292929',
+                        '#fece0a',
+                        '#292929'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Partenaires', 'Clients Satisfaits', 'Projets Réussis'],
+                datasets: [{
+                    data: [40, 35, 25],
+                    backgroundColor: [
+                        '#292929',
+                        '#fece0a',
+                        '#292929'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
         });
     </script>
 </body>
