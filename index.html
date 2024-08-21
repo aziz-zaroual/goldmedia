@@ -8,19 +8,68 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        .chart-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            margin: 20px auto;
-            border-radius: 8px;
-            overflow: hidden;
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #292929;
+            color: #fece0a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .chart-container canvas {
-            width: 100% !important;
-            height: 100% !important;
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fece0a;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #fece0a 0%, #292929 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0 0;
         }
 
         .section-header {
@@ -28,23 +77,31 @@
             margin-bottom: 40px;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #fece0a 0%, #292929 100%);
-            color: #ffffff;
-            padding: 50px 20px;
-            text-align: center;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
         .about,
-        .cta {
+        .cta,
+        .why-choose,
+        .tools {
             padding: 20px;
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            margin: 20px;
+        }
+
+        .charts-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chart-container {
+            width: 90%;
+            max-width: 600px;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button {
@@ -82,20 +139,25 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Roboto', sans-serif;
-        }
-
         .dynamic-number {
             font-size: 2rem;
             font-weight: bold;
             color: #fece0a;
+        }
+
+        .why-choose,
+        .tools {
+            text-align: center;
+        }
+
+        .tools ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tools ul li {
+            margin: 10px 0;
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -129,44 +191,79 @@
                 premier ordre. Découvrez ci-dessous les statistiques de croissance pour nos partenaires dans différents
                 secteurs.</p>
         </section>
+        <section class="why-choose">
+            <h2>Pourquoi Nous Choisir?</h2>
+            <p>Gold Media se distingue par son expertise approfondie et son approche innovante dans le marketing
+                digital. Voici quelques raisons pour lesquelles nos clients nous choisissent :</p>
+            <ul>
+                <li><strong>Expertise Professionnelle:</strong> Une équipe d'experts avec des années d'expérience dans
+                    le marketing digital.</li>
+                <li><strong>Solutions Personnalisées:</strong> Des stratégies sur mesure pour répondre aux besoins
+                    uniques de chaque client.</li>
+                <li><strong>Technologie Avancée:</strong> Utilisation des dernières technologies pour maximiser l'impact
+                    des campagnes.</li>
+                <li><strong>Résultats Mesurables:</strong> Des solutions basées sur des données pour assurer des
+                    résultats concrets et mesurables.</li>
+            </ul>
+        </section>
+        <section class="tools">
+            <h2>Outils que Nous Développons</h2>
+            <p>Nous proposons une gamme d'outils adaptés à différents secteurs pour optimiser les performances marketing
+                :</p>
+            <ul>
+                <li><strong>Gestion des Réservations Hôtelières:</strong> Outils avancés pour améliorer la gestion et
+                    l'optimisation des réservations.</li>
+                <li><strong>Solutions de Location de Voitures:</strong> Plateformes de réservation flexibles et
+                    efficaces pour le secteur de la location de voitures.</li>
+                <li><strong>Gestion de Portefeuilles Immobiliers:</strong> Outils pour gérer les propriétés et maximiser
+                    les revenus.</li>
+            </ul>
+        </section>
         <section class="graphs">
             <div class="section-header">
                 <h2>Croissance de Nos Partenaires</h2>
                 <p>Voici un aperçu des performances de nos partenaires dans différents secteurs depuis 2018 jusqu'à
                     2024.</p>
             </div>
-            <div class="chart-container">
-                <canvas id="hotelsChart"></canvas>
-                <h3>Hôtels</h3>
-            </div>
-            <div class="chart-container">
-                <canvas id="carRentalChart"></canvas>
-                <h3>Location de Voitures</h3>
-            </div>
-            <div class="chart-container">
-                <canvas id="realEstateChart"></canvas>
-                <h3>Immobilier</h3>
+            <div class="charts-container">
+                <div class="chart-container">
+                    <canvas id="hotelsChart"></canvas>
+                    <h3>Hôtels</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="carRentalChart"></canvas>
+                    <h3>Location de Voitures</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="realEstateChart"></canvas>
+                    <h3>Immobilier</h3>
+                </div>
             </div>
         </section>
         <section class="cta">
-            <div class="section-header">
-                <h2>Découvrez Nos Services</h2>
-                <p>Nous offrons une gamme complète de services de marketing digital pour aider votre entreprise à se
-                    développer. Contactez-nous pour en savoir plus!</p>
-                <a href="contact.html" class="cta-button">Contactez-nous</a>
-            </div>
+            <h2>Prêt à Améliorer Votre Présence en Ligne?</h2>
+            <p>Contactez-nous dès aujourd'hui pour découvrir comment Gold Media peut transformer votre marketing
+                digital.</p>
+            <a href="contact.html" class="cta-button">Contactez-nous</a>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Gold Media. Tous droits réservés.</p>
+        <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
     <script>
+        // Generate random data for the charts
         function generateRandomData() {
-            return Array.from({ length: 7 }, () => Math.floor(Math.random() * 2000) + 500);
+            const data = [];
+            for (let i = 0; i < 7; i++) {
+                data.push(Math.floor(Math.random() * 1000) + 100);
+            }
+            return data;
         }
 
         function updateChart(chart, data) {
-            chart.data.datasets[0].data = data;
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data = data;
+            });
             chart.update();
         }
 
@@ -179,12 +276,12 @@
             data: {
                 labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
                 datasets: [{
-                    label: 'Croissance des Hôtels (en milliers de dirhams)',
+                    label: 'Croissance des Réservations d’Hôtels (en milliers de dirhams)',
                     data: generateRandomData(),
                     borderColor: '#fece0a',
                     backgroundColor: 'rgba(254, 206, 10, 0.2)',
                     fill: true,
-                    tension: 0.2
+                    tension: 0.4
                 }]
             },
             options: {
@@ -205,7 +302,7 @@
                 scales: {
                     x: {
                         grid: {
-                            display: false
+                            color: '#eee'
                         }
                     },
                     y: {
@@ -223,12 +320,11 @@
             data: {
                 labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
                 datasets: [{
-                    label: 'Croissance Location de Voitures (en milliers de dirhams)',
+                    label: 'Croissance des Réservations de Voitures (en milliers de dirhams)',
                     data: generateRandomData(),
                     backgroundColor: '#fece0a',
-                    borderColor: '#292929',
-                    borderWidth: 1,
-                    borderRadius: 5
+                    borderColor: '#fece0a',
+                    borderWidth: 2
                 }]
             },
             options: {
@@ -249,7 +345,7 @@
                 scales: {
                     x: {
                         grid: {
-                            display: false
+                            color: '#eee'
                         }
                     },
                     y: {
