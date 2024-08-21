@@ -18,7 +18,7 @@
         header {
             background-color: #292929;
             color: #fece0a;
-            padding: 5px 20px;
+            padding: 10px 20px;
             /* Réduit l'épaisseur de la barre de menu */
             display: flex;
             justify-content: space-between;
@@ -36,7 +36,7 @@
         }
 
         .logo-container img {
-            height: 80px;
+            height: 100px;
             /* Agrandissement du logo */
             width: auto;
             transition: height 0.3s;
@@ -124,16 +124,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 20px;
         }
 
         .chart-container {
             width: 90%;
-            max-width: 600px;
-            height: 300px;
+            max-width: 700px;
+            /* Ajustement pour rendre les graphiques plus larges */
+            height: 350px;
+            /* Augmentation de la hauteur pour plus de visibilité */
             margin: 20px 0;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .chart-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button {
@@ -159,7 +168,7 @@
             background-color: #292929;
             color: #ffffff;
             text-align: center;
-            padding: 10px 20px;
+            padding: 15px 20px;
             /* Réduit l'épaisseur de la barre en bas */
             margin-top: 40px;
             /* Ajout d'une marge en haut */
@@ -203,7 +212,10 @@
         }
 
         .tool-image img {
+            width: 100%;
+            /* Assure que l'image s'ajuste correctement */
             max-width: 100%;
+            /* Assure que l'image ne dépasse pas la largeur du conteneur */
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -271,15 +283,14 @@
         <section class="hero">
             <h1>Bienvenue sur Gold Media</h1>
             <p>Gold Media by Derraji est une société spécialisée dans le marketing digital depuis 2010. Nous offrons des
-                solutions innovantes pour améliorer la présence en ligne de nos clients.</p>
+                solutions personnalisées pour vous aider à atteindre vos objectifs commerciaux.</p>
         </section>
         <section class="about">
-            <h2>À propos de Nous</h2>
-            <p>Fondée en 2010, Gold Media est dirigée par Mohammed Derraji, un expert en marketing digital avec une
-                vaste expérience dans le domaine. Nous aidons les entreprises à atteindre leurs objectifs numériques
-                grâce à des services sur mesure adaptés à leurs besoins spécifiques.</p>
-            <p>Nous collaborons avec un réseau étendu de partenaires pour offrir des solutions de marketing digital de
-                premier ordre. Découvrez ci-dessous les statistiques de notre impact.</p>
+            <h2>À Propos de Nous</h2>
+            <p>Nous sommes passionnés par le marketing digital et la technologie. Notre équipe est composée de
+                professionnels expérimentés qui travaillent ensemble pour offrir les meilleures solutions à nos clients.
+                Depuis notre création en 2010, nous avons aidé des entreprises de toutes tailles à améliorer leur
+                présence en ligne et à atteindre leurs objectifs.</p>
         </section>
         <section class="why-choose">
             <h2>Pourquoi Nous Choisir</h2>
@@ -306,8 +317,7 @@
             <div class="tool-image">
                 <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales">
                 <p>Nous optimisons la gestion des réservations sur des plateformes mondiales telles que Booking et
-                    Airbnb,
-                    permettant ainsi à nos clients de maximiser leur visibilité et leur efficacité.</p>
+                    Airbnb, permettant ainsi à nos clients de maximiser leur visibilité et leur efficacité.</p>
             </div>
         </section>
         <section class="specialties">
@@ -382,9 +392,28 @@
                 }]
             },
             options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
+                },
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return value + '%';
+                            }
+                        }
                     }
                 }
             }
@@ -412,6 +441,13 @@
                     legend: {
                         position: 'top',
                     },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
                 }
             }
         });
