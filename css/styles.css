@@ -1,10 +1,8 @@
-/* Général */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #f0f0f0;
 }
 
 header {
@@ -27,7 +25,7 @@ header.scrolled {
 }
 
 .logo-container img {
-    height: 100px;
+    height: 80px;
     width: auto;
     transition: height 0.3s;
 }
@@ -47,90 +45,146 @@ nav ul li a {
     color: #fece0a;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     color: #ffffff;
+    transform: scale(1.1);
 }
 
 .hero {
     position: relative;
-    height: 400px;
-    overflow: hidden;
+    background: url('images/hero-background.jpg') no-repeat center center/cover;
+    color: #ffffff;
+    padding: 100px 20px 60px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 100px 20px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
-.hero-background {
+.hero::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 1s ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
     z-index: 1;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    color: #ffffff;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.hero-content.active {
-    opacity: 1;
-}
-
-.hero-heading {
+.hero h1 {
     font-size: 2.5rem;
     margin: 0;
+    z-index: 2;
+    font-weight: 700;
 }
 
-.hero-paragraph {
+.hero p {
     font-size: 1.2rem;
-    margin-top: 10px;
+    margin: 20px 0 0;
+    z-index: 2;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .about,
+.cta,
 .why-choose,
-.tools,
-.charts-container,
-.cta {
-    padding: 40px 20px;
+.tools {
+    padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 1200px;
-    text-align: center;
 }
 
-.why-choose .specialties {
-    display: flex;
-    justify-content: space-around;
+.tools ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tools ul li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.tool-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tool-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .specialty {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
-    transition: transform 0.3s;
-}
-
-.specialty img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
 }
 
 .specialty:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.charts-container .chart-container {
-    margin-bottom: 20px;
+.specialty img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+.specialty h2 {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.chart-container {
+    width: 90%;
+    max-width: 700px;
+    height: 350px;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chart-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button {
@@ -156,23 +210,16 @@ footer {
     color: #ffffff;
     text-align: center;
     padding: 15px 20px;
+    margin-top: 40px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1000;
 }
 
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
     .chart-container {
         height: 250px;
     }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');

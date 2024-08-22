@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Media</title>
+    <title>Accueil - Gold Media</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -12,64 +12,79 @@
 <body>
     <header id="header">
         <div class="logo-container">
-            <img src="images/logo.jpg" alt="Logo Gold Media">
+            <img src="images/logo.jpg" alt="Gold Media by Derraji">
         </div>
         <nav>
             <ul>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#why-choose">Pourquoi nous choisir</a></li>
-                <li><a href="#tools">Outils</a></li>
-                <li><a href="#charts">Statistiques</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="partners.html">Chiffres et Partenaires</a></li>
+                <li><a href="contact.html">Contactez-nous</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-background"></div>
-            <div class="hero-content">
-                <h1 class="hero-heading">Bienvenue chez Gold Media</h1>
-                <p class="hero-paragraph">Nous transformons vos objectifs marketing en succès grâce à notre expertise et
-                    nos outils innovants.</p>
-            </div>
+            <h1>Bienvenue chez Gold Media</h1>
+            <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.</p>
         </section>
 
-        <section class="about" id="about">
-            <h2>À propos de nous</h2>
-            <p>Gold Media est une agence spécialisée dans l'optimisation des campagnes marketing. Nous utilisons des
-                outils innovants pour vous aider à atteindre vos objectifs.</p>
+        <section class="about">
+            <h2>À Propos de Nous</h2>
+            <p>Nous sommes passionnés par le marketing digital et la technologie. Notre équipe est composée de
+                professionnels expérimentés qui travaillent ensemble pour offrir les meilleures solutions à nos clients.
+                Depuis notre création en 2010, nous avons aidé des entreprises de toutes tailles à améliorer leur
+                présence en ligne et à atteindre leurs objectifs.</p>
         </section>
 
-        <section class="why-choose" id="why-choose">
-            <h2>Pourquoi nous choisir ?</h2>
-            <div class="specialties">
-                <div class="specialty">
-                    <img src="images/real-estate.jpg" alt="Immobilier">
-                    <h2>Immobilier</h2>
-                </div>
-                <div class="specialty">
-                    <img src="images/hotel.jpg" alt="Hôtel">
-                    <h2>Hôtel</h2>
-                </div>
-                <div class="specialty">
-                    <img src="images/booking-airbnb.jpg" alt="Réservation">
-                    <h2>Réservation</h2>
-                </div>
-                <div class="specialty">
-                    <img src="images/car-rental.jpg" alt="Location de Voitures">
-                    <h2>Location de Voitures</h2>
-                </div>
-            </div>
+        <section class="why-choose">
+            <h2>Pourquoi Nous Choisir</h2>
+            <ul>
+                <li><strong>Expertise Personnalisée:</strong> Des stratégies adaptées aux besoins spécifiques de chaque
+                    client.</li>
+                <li><strong>Technologies Avancées:</strong> Utilisation des dernières technologies et outils de
+                    marketing.</li>
+                <li><strong>Résultats Mesurables:</strong> Analyse approfondie et reporting des performances.</li>
+            </ul>
         </section>
 
-        <section class="tools" id="tools">
+        <section class="tools">
             <h2>Nos Outils</h2>
-            <p>Nous utilisons une gamme d'outils avancés pour analyser et optimiser vos campagnes marketing.</p>
+            <p>Nous utilisons une gamme d'outils et de technologies pour offrir les meilleurs résultats à nos clients.
+            </p>
+            <ul>
+                <li>Google Analytics</li>
+                <li>SEO Avancé</li>
+                <li>Publicité en Ligne</li>
+                <li>Outils de Marketing Automation</li>
+                <li>Analyse des Réseaux Sociaux</li>
+                <li>Optimisation des Réservations sur Plateformes Mondiales</li>
+            </ul>
         </section>
 
-        <section class="charts-container" id="charts">
-            <h2>Nos Statistiques</h2>
+        <section class="specialties">
+            <h2 class="section-header">Nos Spécialités</h2>
+            <div class="specialty">
+                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières">
+                <h2>Gestion des Réservations Hôtelières</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/car-rental.jpg" alt="Plateformes de Location de Voitures">
+                <h2>Plateformes de Location de Voitures</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/real-estate.jpg" alt="Outils pour l'Immobilier">
+                <h2>Outils pour l'Immobilier</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales">
+                <h2>Optimisation des Réservations sur Plateformes Mondiales</h2>
+            </div>
+        </section>
+
+        <section class="charts-container">
+            <h2 class="section-header">Chiffres et Statistiques</h2>
             <div class="chart-container">
                 <canvas id="chart1"></canvas>
             </div>
@@ -79,107 +94,102 @@
         </section>
 
         <section class="cta">
-            <h2>Prêt à Passer à l'Action ?</h2>
-            <p>Contactez-nous aujourd'hui pour discuter de vos objectifs marketing et découvrir comment nous pouvons
-                vous aider à les atteindre.</p>
+            <h2>Prêt à Élever Votre Présence en Ligne?</h2>
+            <p>Contactez-nous aujourd'hui pour découvrir comment nous pouvons vous aider à atteindre vos objectifs
+                marketing.</p>
             <a href="contact.html" class="cta-button">Contactez-nous</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Gold Media. Tous droits réservés.</p>
+        <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Dynamique du Hero Section
-            const phrases = [
-                { heading: 'Bienvenue chez Gold Media', paragraph: 'Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.', background: 'url("images/hero-background1.jpg")' },
-                { heading: 'Découvrez notre expertise', paragraph: 'Nous utilisons des outils avancés pour atteindre vos objectifs.', background: 'url("images/hero-background2.jpg")' },
-                { heading: 'Nos outils sont à la pointe', paragraph: 'Optimisez vos campagnes avec des technologies modernes.', background: 'url("images/hero-background3.jpg")' },
-                { heading: 'Atteignez de nouveaux sommets', paragraph: 'Nous vous aidons à exceller dans le monde numérique.', background: 'url("images/hero-background4.jpg")' }
-            ];
-
-            let phraseIndex = 0;
-            const heroContent = document.querySelector('.hero-content');
-            const heroBackground = document.querySelector('.hero-background');
-
-            function changeContent() {
-                const currentPhrase = phrases[phraseIndex];
-                heroContent.querySelector('.hero-heading').textContent = currentPhrase.heading;
-                heroContent.querySelector('.hero-paragraph').textContent = currentPhrase.paragraph;
-                heroBackground.style.backgroundImage = currentPhrase.background;
-
-                heroContent.classList.remove('active');
-                setTimeout(() => {
-                    heroContent.classList.add('active');
-                }, 10); // Petite pause pour déclencher l'animation de fade-in
-
-                phraseIndex = (phraseIndex + 1) % phrases.length;
+        const header = document.getElementById('header');
+        window.onscroll = function () {
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+        };
 
-            changeContent(); // Initial call to set the first content
-            setInterval(changeContent, 4000); // Change every 4 seconds
+        document.querySelectorAll('.specialty img').forEach(img => {
+            img.classList.add('loading');
+            img.onload = () => {
+                img.classList.remove('loading');
+            };
+        });
 
-            // Charts
-            const ctx1 = document.getElementById('chart1').getContext('2d');
-            new Chart(ctx1, {
-                type: 'bar',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                    datasets: [{
-                        label: 'Ventes',
-                        data: [10, 20, 30, 40, 50, 60],
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
-                    }]
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Hôtellerie', 'Location de Voitures', 'Immobilier'],
+                datasets: [{
+                    label: 'Croissance (%)',
+                    data: [30, 45, 25],
+                    backgroundColor: ['#fece0a', '#292929', '#fece0a'],
+                    borderColor: ['#292929', '#fece0a', '#292929'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
                 },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return value + '%';
+                            }
                         }
                     }
                 }
-            });
+            }
+        });
 
-            const ctx2 = document.getElementById('chart2').getContext('2d');
-            new Chart(ctx2, {
-                type: 'pie',
-                data: {
-                    labels: ['Produit A', 'Produit B', 'Produit C'],
-                    datasets: [{
-                        label: 'Répartition des Ventes',
-                        data: [300, 50, 100],
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Partenaires', 'Clients Satisfaits', 'Projets Réussis'],
+                datasets: [{
+                    data: [40, 35, 25],
+                    backgroundColor: ['#292929', '#fece0a', '#292929'],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
                 }
-            });
-
-            // Header scroll effect
-            window.addEventListener('scroll', () => {
-                const header = document.getElementById('header');
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
+            }
         });
     </script>
 </body>
