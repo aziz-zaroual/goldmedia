@@ -65,14 +65,19 @@
 
         .hero {
             position: relative;
-            background: url('images/hero-background.jpg') no-repeat center center/cover;
+            background: url('images/hero-background1.jpg') no-repeat center center/cover;
             color: #ffffff;
             padding: 100px 20px 60px;
             text-align: center;
             border-radius: 10px;
-            margin: 40px 20px;
+            margin: 120px 20px 60px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 80px;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero::before {
@@ -107,8 +112,7 @@
 
         .about,
         .cta,
-        .why-choose,
-        .tools {
+        .why-choose {
             padding: 20px;
             background-color: #ffffff;
             border-radius: 8px;
@@ -117,24 +121,31 @@
         }
 
         .tools {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
             text-align: center;
         }
 
-        .tools ul {
-            list-style-type: none;
-            padding: 0;
+        .tool-image {
+            margin: 20px 0;
+            text-align: center;
         }
 
-        .tools ul li {
-            margin: 10px 0;
-            font-size: 1.1rem;
+        .tool-image img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .specialties {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
+        .tool-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .specialty {
@@ -142,10 +153,9 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 10px;
+            margin: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
-            width: 300px;
         }
 
         .specialty:hover {
@@ -221,7 +231,6 @@
             color: #ffffff;
             text-align: center;
             padding: 15px 20px;
-            margin-top: 40px;
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -231,14 +240,49 @@
             .chart-container {
                 height: 250px;
             }
-
-            .specialty {
-                width: 100%;
-                max-width: 300px;
-            }
         }
 
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        .dynamic-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fece0a;
+        }
+
+        .why-choose,
+        .tools {
+            text-align: center;
+        }
+
+        .tools ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tools ul li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .tool-image {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .tool-image img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tool-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 
@@ -258,130 +302,142 @@
     </header>
     <main>
         <section class="hero">
-            <h1>Bienvenue chez Gold Media</h1>
-            <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.</p>
+            <div class="hero-content">
+                <h1 id="hero-title">Bienvenue chez Gold Media</h1>
+                <p id="hero-text">Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos
+                    outils innovants.</p>
+            </div>
         </section>
+
+        <!-- Section About -->
         <section class="about">
-            <h2>À Propos de Nous</h2>
-            <p>Nous sommes passionnés par le marketing digital et la technologie. Notre équipe est composée de
-                professionnels expérimentés qui travaillent ensemble pour offrir les meilleures solutions à nos clients.
-                Depuis notre création en 2010, nous avons aidé des entreprises de toutes tailles à améliorer leur
-                présence en ligne et à atteindre leurs objectifs.</p>
-        </section>
-        <section class="why-choose">
-            <h2>Pourquoi Nous Choisir</h2>
-            <ul>
-                <li><strong>Expertise Personnalisée:</strong> Des stratégies adaptées aux besoins spécifiques de chaque
-                    client.</li>
-                <li><strong>Technologies Avancées:</strong> Utilisation des dernières technologies et outils de
-                    marketing.</li>
-                <li><strong>Résultats Mesurables:</strong> Analyse approfondie et reporting des performances.</li>
-            </ul>
-        </section>
-        <section class="tools">
-            <h2>Nos Outils</h2>
-            <p>Nous utilisons une gamme d'outils et de technologies pour offrir les meilleurs résultats à nos clients.
-            </p>
-            <ul>
-                <li>Google Analytics</li>
-                <li>SEO Avancé</li>
-                <li>Publicité en Ligne</li>
-                <li>Outils de Marketing Automation</li>
-                <li>Analyse des Réseaux Sociaux</li>
-                <li>Optimisation des Réservations sur Plateformes Mondiales</li>
-            </ul>
-        </section>
-        <section class="specialties">
-            <div class="specialty">
-                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières" class="specialty-image">
-                <h2>Gestion des Réservations Hôtelières</h2>
+            <div class="section-header">
+                <h2>À propos de nous</h2>
             </div>
-            <div class="specialty">
-                <img src="images/car-rental.jpg" alt="Plateformes de Location de Voitures" class="specialty-image">
-                <h2>Plateformes de Location de Voitures</h2>
-            </div>
-            <div class="specialty">
-                <img src="images/real-estate.jpg" alt="Outils pour l'Immobilier" class="specialty-image">
-                <h2>Outils pour l'Immobilier</h2>
-            </div>
-            <div class="specialty">
-                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales"
-                    class="specialty-image">
-                <h2>Optimisation des Réservations sur Plateformes Mondiales</h2>
+            <p>Chez Gold Media, nous nous engageons à offrir des solutions marketing de pointe pour aider nos clients à
+                atteindre leurs objectifs commerciaux. Notre équipe d'experts utilise des outils innovants pour garantir
+                des résultats exceptionnels.</p>
+        </section>
+
+        <!-- Section Graphs -->
+        <section class="graphs">
+            <div class="charts-container">
+                <div class="chart-container">
+                    <canvas id="chart1"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart2"></canvas>
+                </div>
             </div>
         </section>
-        <section class="charts-container">
-            <h2 class="section-header">Chiffres et Statistiques</h2>
-            <div class="chart-container">
-                <canvas id="chart1"></canvas>
-            </div>
-            <div class="chart-container">
-                <canvas id="chart2"></canvas>
-            </div>
-        </section>
+
+        <!-- Section CTA -->
         <section class="cta">
-            <h2>Prêt à Élever Votre Présence en Ligne?</h2>
-            <p>Contactez-nous aujourd'hui pour découvrir comment nous pouvons vous aider à atteindre vos objectifs
-                marketing.</p>
+            <h2>Transformez votre stratégie dès aujourd'hui !</h2>
             <a href="contact.html" class="cta-button">Contactez-nous</a>
+        </section>
+
+        <!-- Section Tools -->
+        <section class="tools">
+            <div class="section-header">
+                <h2>Nos Outils</h2>
+            </div>
+            <ul>
+                <li>Outil 1</li>
+                <li>Outil 2</li>
+                <li>Outil 3</li>
+            </ul>
+            <div class="tool-image">
+                <img src="images/tool1.jpg" alt="Outil 1">
+            </div>
+        </section>
+
+        <!-- Section Why Choose -->
+        <section class="why-choose">
+            <div class="section-header">
+                <h2>Pourquoi nous choisir ?</h2>
+            </div>
+            <p>Nous offrons une approche personnalisée pour chaque client, garantissant que vos besoins spécifiques sont
+                au cœur de notre stratégie.</p>
+        </section>
+
+        <!-- Section Specialty -->
+        <section class="specialty">
+            <img src="images/specialty.jpg" alt="Spécialité">
+            <h2>Notre Spécialité</h2>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
+        <p>&copy; 2024 Gold Media. Tous droits réservés.</p>
     </footer>
     <script>
+        const backgrounds = [
+            'images/hero-background1.jpg',
+            'images/hero-background2.jpg',
+            'images/hero-background3.jpg',
+            'images/hero-background4.jpg'
+        ];
+
+        const titles = [
+            'Bienvenue chez Gold Media',
+            'Élevez votre stratégie marketing',
+            'Innovation au cœur de notre approche',
+            'Transformez vos défis en opportunités'
+        ];
+
+        const texts = [
+            'Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.',
+            'Découvrez comment nous pouvons optimiser votre présence en ligne.',
+            'Utilisez nos outils pour obtenir des résultats mesurables et concrets.',
+            'Nos solutions sur mesure sont conçues pour maximiser vos résultats.'
+        ];
+
+        let currentIndex = 0;
+        const heroSection = document.querySelector('.hero');
+        const heroTitle = document.getElementById('hero-title');
+        const heroText = document.getElementById('hero-text');
+
+        function updateHeroSection() {
+            currentIndex = (currentIndex + 1) % backgrounds.length;
+            heroSection.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+            heroTitle.textContent = titles[currentIndex];
+            heroText.textContent = texts[currentIndex];
+        }
+
+        setInterval(updateHeroSection, 240000); // Change background every 4 minutes
+
+        // Initialize with the first set
+        updateHeroSection();
+
+        // Sticky Header Effect
         const header = document.getElementById('header');
-        window.onscroll = function () {
-            if (window.pageYOffset > 50) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-        };
-
-        document.querySelectorAll('.specialty-image').forEach(img => {
-            img.classList.add('loading');
-            img.onload = () => {
-                img.classList.remove('loading');
-            };
         });
 
+        // Initialize Charts
         const ctx1 = document.getElementById('chart1').getContext('2d');
         const chart1 = new Chart(ctx1, {
             type: 'bar',
             data: {
-                labels: ['Hôtellerie', 'Location de Voitures', 'Immobilier'],
+                labels: ['January', 'February', 'March', 'April'],
                 datasets: [{
-                    label: 'Croissance (%)',
-                    data: [30, 45, 25],
-                    backgroundColor: ['#fece0a', '#292929', '#fece0a'],
-                    borderColor: ['#292929', '#fece0a', '#292929'],
+                    label: 'Monthly Sales',
+                    data: [30, 50, 70, 90],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                },
                 scales: {
                     y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function (value) {
-                                return value + '%';
-                            }
-                        }
+                        beginAtZero: true
                     }
                 }
             }
@@ -391,28 +447,27 @@
         const chart2 = new Chart(ctx2, {
             type: 'pie',
             data: {
-                labels: ['Partenaires', 'Clients Satisfaits', 'Projets Réussis'],
+                labels: ['Red', 'Blue', 'Yellow', 'Green'],
                 datasets: [{
-                    data: [40, 35, 25],
-                    backgroundColor: ['#292929', '#fece0a', '#292929'],
-                    borderColor: '#ffffff',
-                    borderWidth: 2
+                    label: 'Pie Chart Example',
+                    data: [12, 19, 3, 5],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
                 }]
             },
             options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                }
+                responsive: true
             }
         });
     </script>
