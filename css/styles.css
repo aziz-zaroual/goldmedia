@@ -67,7 +67,7 @@ main {
     text-align: center;
     color: #ffffff;
     z-index: 2;
-    animation: fadeInText 2s ease-in-out infinite;
+    animation: fadeInText 4s ease-in-out infinite;
 }
 
 .hero-content h1 {
