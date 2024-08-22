@@ -7,126 +7,491 @@
     <title>Accueil - Gold Media</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #292929;
+            color: #fece0a;
+            padding: 10px 20px;
+            /* Réduit l'épaisseur de la barre de menu */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        header.scrolled {
+            background-color: #1f1f1f;
+        }
+
+        .logo-container img {
+            height: 100px;
+            /* Agrandissement du logo */
+            width: auto;
+            transition: height 0.3s;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fece0a;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            position: relative;
+            background: url('images/hero-background1.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            padding: 120px 20px 60px;
+            /* Ajustement du padding pour ajouter un espace */
+            text-align: center;
+            border-radius: 10px;
+            margin: 80px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            z-index: 2;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0 0;
+            z-index: 2;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about,
+        .cta,
+        .why-choose {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .tools {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+        }
+
+        .tools ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tools ul li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .tool-image {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .tool-image img {
+            width: 100%;
+            /* Assure que l'image s'ajuste correctement */
+            max-width: 100%;
+            /* Assure que l'image ne dépasse pas la largeur du conteneur */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tool-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .specialty {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .specialty:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .specialty img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .specialty img.loading {
+            opacity: 0.5;
+        }
+
+        .specialty h2 {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            color: #ffffff;
+            font-size: 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .charts-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chart-container {
+            width: 90%;
+            max-width: 700px;
+            height: 350px;
+            /* Augmentation de la hauteur pour plus de visibilité */
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .chart-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta {
+            padding: 20px;
+            background-color: #fece0a;
+            color: #292929;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #292929;
+            color: #fece0a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 20px auto;
+            display: block;
+            /* Centrer le bouton */
+        }
+
+        .cta-button:hover {
+            background-color: #fece0a;
+            color: #292929;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #292929;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 20px;
+            /* Réduit l'épaisseur de la barre en bas */
+            margin-top: 40px;
+            /* Ajout d'une marge en haut */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 250px;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        .dynamic-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fece0a;
+        }
+
+        .why-choose,
+        .tools {
+            text-align: center;
+        }
+
+        .tools ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tools ul li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .tool-image {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .tool-image img {
+            width: 100%;
+            /* Assure que l'image s'ajuste correctement */
+            max-width: 100%;
+            /* Assure que l'image ne dépasse pas la largeur du conteneur */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tool-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 
 <body>
     <header id="header">
         <div class="logo-container">
-            <img src="images/logo.jpg" alt="Gold Media by Derraji">
+            <img src="images/logo.png" alt="Logo Gold Media">
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="partners.html">Chiffres et Partenaires</a></li>
-                <li><a href="contact.html">Contactez-nous</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#charts">Chiffres et Statistiques</a></li>
+                <li><a href="#cta">Contactez-nous</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
+    <section class="hero">
+        <div class="hero-text">
             <h1>Bienvenue chez Gold Media</h1>
             <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.</p>
-        </section>
+        </div>
+    </section>
 
-        <section class="about">
-            <h2>À Propos de Nous</h2>
-            <p>Nous sommes passionnés par le marketing digital et la technologie. Notre équipe est composée de
-                professionnels expérimentés qui travaillent ensemble pour offrir les meilleures solutions à nos clients.
-                Depuis notre création en 2010, nous avons aidé des entreprises de toutes tailles à améliorer leur
-                présence en ligne et à atteindre leurs objectifs.</p>
-        </section>
+    <section id="about" class="about">
+        <h2 class="section-header">À propos de nous</h2>
+        <p>Gold Media est une agence spécialisée dans la transformation des objectifs marketing en succès concret pour
+            nos clients. Avec notre expertise et nos outils innovants, nous vous aidons à atteindre vos objectifs de
+            manière efficace et impactante.</p>
+    </section>
 
-        <section class="why-choose">
-            <h2>Pourquoi Nous Choisir</h2>
-            <ul>
-                <li><strong>Expertise Personnalisée:</strong> Des stratégies adaptées aux besoins spécifiques de chaque
-                    client.</li>
-                <li><strong>Technologies Avancées:</strong> Utilisation des dernières technologies et outils de
-                    marketing.</li>
-                <li><strong>Résultats Mesurables:</strong> Analyse approfondie et reporting des performances.</li>
-            </ul>
-        </section>
+    <section id="charts" class="charts-container">
+        <h2 class="section-header">Chiffres et Statistiques</h2>
+        <div class="chart-container">
+            <canvas id="chart1"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="chart2"></canvas>
+        </div>
+    </section>
 
-        <section class="tools">
-            <h2>Nos Outils</h2>
-            <p>Nous utilisons une gamme d'outils et de technologies pour offrir les meilleurs résultats à nos clients.
-            </p>
-            <ul>
-                <li>Google Analytics</li>
-                <li>SEO Avancé</li>
-                <li>Publicité en Ligne</li>
-                <li>Outils de Marketing Automation</li>
-                <li>Analyse des Réseaux Sociaux</li>
-                <li>Optimisation des Réservations sur Plateformes Mondiales</li>
-            </ul>
-        </section>
-
-        <section class="specialties">
-            <h2 class="section-header">Nos Spécialités</h2>
-            <div class="specialty">
-                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières">
-                <h2>Gestion des Réservations Hôtelières</h2>
-            </div>
-            <div class="specialty">
-                <img src="images/car-rental.jpg" alt="Plateformes de Location de Voitures">
-                <h2>Plateformes de Location de Voitures</h2>
-            </div>
-            <div class="specialty">
-                <img src="images/real-estate.jpg" alt="Outils pour l'Immobilier">
-                <h2>Outils pour l'Immobilier</h2>
-            </div>
-            <div class="specialty">
-                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales">
-                <h2>Optimisation des Réservations sur Plateformes Mondiales</h2>
-            </div>
-        </section>
-
-        <section class="charts-container">
-            <h2 class="section-header">Chiffres et Statistiques</h2>
-            <div class="chart-container">
-                <canvas id="chart1"></canvas>
-            </div>
-            <div class="chart-container">
-                <canvas id="chart2"></canvas>
-            </div>
-        </section>
-
-        <section class="cta">
-            <h2>Prêt à Élever Votre Présence en Ligne?</h2>
-            <p>Contactez-nous aujourd'hui pour découvrir comment nous pouvons vous aider à atteindre vos objectifs
-                marketing.</p>
-            <a href="contact.html" class="cta-button">Contactez-nous</a>
-        </section>
-    </main>
+    <section id="cta" class="cta">
+        <h2>Contactez-nous</h2>
+        <p>Pour discuter de vos besoins en marketing et découvrir comment nous pouvons vous aider à réussir.</p>
+        <a href="mailto:contact@goldmedia.ma" class="cta-button">Nous Contacter</a>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
+        <p>&copy; 2024 Gold Media. Tous droits réservés.</p>
     </footer>
 
-<script>
-    const hero = document.querySelector('.hero');
-    const images = [
-        'images/hero-background1.jpg',
-        'images/hero-background2.jpg',
-        'images/hero-background3.jpg',
-        'images/hero-background4.jpg'
-    ];
-    let currentIndex = 0;
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // JavaScript pour la section héro avec changement d'image et de texte
+        const hero = document.querySelector('.hero');
+        const heroText = document.querySelector('.hero-text');
+        const backgrounds = [
+            { image: 'images/hero-background1.jpg', text: 'Bienvenue chez Gold Media' },
+            { image: 'images/hero-background2.jpg', text: 'Nous transformons vos objectifs marketing' },
+            { image: 'images/hero-background3.jpg', text: 'Grâce à notre expertise et nos outils innovants' },
+            { image: 'images/hero-background4.jpg', text: 'Faites confiance à Gold Media pour votre succès' }
+        ];
+        let currentIndex = 0;
 
-    function changeBackgroundImage() {
-        hero.style.backgroundImage = `url(${images[currentIndex]})`;
-        currentIndex = (currentIndex + 1) % images.length;
-    }
+        function changeHero() {
+            hero.style.backgroundImage = `url(${backgrounds[currentIndex].image})`;
+            heroText.innerHTML = `<h1>${backgrounds[currentIndex].text}</h1>`;
+            currentIndex = (currentIndex + 1) % backgrounds.length;
+        }
 
-    // Initial call to set the first background image
-    changeBackgroundImage();
+        // Initial call to set the first background and text
+        changeHero();
 
-    // Change background image every 4 seconds
-    setInterval(changeBackgroundImage, 4000);
-</script>
+        // Change background image and text every 4 seconds
+        setInterval(changeHero, 4000);
 
+        // JavaScript pour les graphiques
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: 'Chiffre d\'Affaires (en milliers de dirhams)',
+                    data: [1000, 1500, 500, 800, 1200, 1600, 2000],
+                    borderColor: '#fece0a',
+                    backgroundColor: 'rgba(254, 206, 10, 0.2)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#fece0a'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + ' KDH';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ffffff',
+                            callback: function (value) {
+                                return value + ' KDH';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Immobilier', 'Location de Voitures', 'Hôtellerie'],
+                datasets: [{
+                    label: 'Croissance (%)',
+                    data: [60, 25, 15],
+                    backgroundColor: [
+                        '#fece0a',
+                        '#292929',
+                        '#ff5722'
+                    ],
+                    borderColor: [
+                        '#292929',
+                        '#fece0a',
+                        '#ff5722'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ffffff',
+                            callback: function (value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
