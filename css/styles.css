@@ -53,16 +53,30 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+/* Styles pour la section héro avec animation d'image de fond */
 .hero {
     position: relative;
-    background: url('images/hero-background.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100vh;
+    /* Ajustez la hauteur selon vos besoins */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #ffffff;
-    padding: 100px 20px 60px;
     text-align: center;
-    border-radius: 10px;
-    margin: 100px 20px 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+    /* Ajustez la taille de la police */
+    font-weight: bold;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+}
+
+.hero-text {
     position: relative;
+    z-index: 1;
+    /* Assure que le texte est au-dessus de l'image de fond */
 }
 
 .hero::before {
@@ -73,8 +87,19 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    z-index: 1;
+    /* Assombrit le fond pour le texte */
+    z-index: 0;
+}
+
+/* Optionnel : Assurez-vous que les images se redimensionnent correctement */
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .hero h1 {

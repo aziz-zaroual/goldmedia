@@ -105,93 +105,28 @@
         <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
 
-    <script>
-        const header = document.getElementById('header');
-        window.onscroll = function () {
-            if (window.pageYOffset > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        };
+<script>
+    const hero = document.querySelector('.hero');
+    const images = [
+        'images/hero-background1.jpg',
+        'images/hero-background2.jpg',
+        'images/hero-background3.jpg',
+        'images/hero-background4.jpg'
+    ];
+    let currentIndex = 0;
 
-        document.querySelectorAll('.specialty img').forEach(img => {
-            img.classList.add('loading');
-            img.onload = () => {
-                img.classList.remove('loading');
-            };
-        });
+    function changeBackgroundImage() {
+        hero.style.backgroundImage = `url(${images[currentIndex]})`;
+        currentIndex = (currentIndex + 1) % images.length;
+    }
 
-        const ctx1 = document.getElementById('chart1').getContext('2d');
-        new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: ['Hôtellerie', 'Location de Voitures', 'Immobilier'],
-                datasets: [{
-                    label: 'Croissance (%)',
-                    data: [30, 45, 25],
-                    backgroundColor: ['#fece0a', '#292929', '#fece0a'],
-                    borderColor: ['#292929', '#fece0a', '#292929'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function (value) {
-                                return value + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
+    // Initial call to set the first background image
+    changeBackgroundImage();
 
-        const ctx2 = document.getElementById('chart2').getContext('2d');
-        new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: ['Partenaires', 'Clients Satisfaits', 'Projets Réussis'],
-                datasets: [{
-                    data: [40, 35, 25],
-                    backgroundColor: ['#292929', '#fece0a', '#292929'],
-                    borderColor: '#ffffff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+    // Change background image every 4 seconds
+    setInterval(changeBackgroundImage, 4000);
+</script>
+
 </body>
 
 </html>
