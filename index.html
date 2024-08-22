@@ -311,8 +311,11 @@
     </header>
     <main>
         <section class="hero">
-            <h1>Bienvenue chez Gold Media</h1>
-            <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.</p>
+            <div class="hero-content">
+                <h1>Bienvenue chez Gold Media</h1>
+                <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.
+                </p>
+            </div>
         </section>
         <section class="about">
             <h2>À Propos de Nous</h2>
@@ -382,105 +385,28 @@
     <footer>
         <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
-    <script>
-        const header = document.getElementById('header');
-        window.onscroll = function () {
-            if (window.pageYOffset > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        };
+<script>
+    const phrases = [
+        { text: 'Bienvenue chez Gold Media', style: 'font-size: 2.5rem; font-weight: bold;' },
+        { text: 'Nous transformons vos objectifs en succès', style: 'font-size: 2.2rem; font-style: italic;' },
+        { text: 'Découvrez notre expertise', style: 'font-size: 2.4rem; text-decoration: underline;' },
+        { text: 'Atteignez vos objectifs avec nous', style: 'font-size: 2.3rem; font-weight: 600;' }
+    ];
 
-        document.querySelectorAll('.specialty-image').forEach(img => {
-            img.classList.add('loading');
-            img.onload = () => {
-                img.classList.remove('loading');
-            };
-        });
+    let phraseIndex = 0;
+    const heroContent = document.querySelector('.hero-content h1');
 
-        const ctx1 = document.getElementById('chart1').getContext('2d');
-        const chart1 = new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: ['Hôtellerie', 'Location de Voitures', 'Immobilier'],
-                datasets: [{
-                    label: 'Croissance (%)',
-                    data: [30, 45, 25],
-                    backgroundColor: [
-                        '#fece0a',
-                        '#292929',
-                        '#fece0a'
-                    ],
-                    borderColor: [
-                        '#292929',
-                        '#fece0a',
-                        '#292929'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function (value) {
-                                return value + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
+    function changePhrase() {
+        const currentPhrase = phrases[phraseIndex];
+        heroContent.textContent = currentPhrase.text;
+        heroContent.style = currentPhrase.style;
 
-        const ctx2 = document.getElementById('chart2').getContext('2d');
-        const chart2 = new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: ['Partenaires', 'Clients Satisfaits', 'Projets Réussis'],
-                datasets: [{
-                    data: [40, 35, 25],
-                    backgroundColor: [
-                        '#292929',
-                        '#fece0a',
-                        '#292929'
-                    ],
-                    borderColor: '#ffffff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+    }
+
+    setInterval(changePhrase, 4000);
+</script>
+
 </body>
 
 </html>
