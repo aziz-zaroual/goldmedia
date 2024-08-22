@@ -312,9 +312,10 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Bienvenue chez Gold Media</h1>
-                <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.
-                </p>
+                <h1 class="hero-heading">Bienvenue chez Gold Media</h1>
+                <p class="hero-paragraph">Nous transformons vos objectifs marketing en succès grâce à notre expertise et
+                    nos
+                    outils innovants.</p>
             </div>
         </section>
         <section class="about">
@@ -387,25 +388,34 @@
     </footer>
 <script>
     const phrases = [
-        { text: 'Bienvenue chez Gold Media', style: 'font-size: 2.5rem; font-weight: bold;' },
-        { text: 'Nous transformons vos objectifs en succès', style: 'font-size: 2.2rem; font-style: italic;' },
-        { text: 'Découvrez notre expertise', style: 'font-size: 2.4rem; text-decoration: underline;' },
-        { text: 'Atteignez vos objectifs avec nous', style: 'font-size: 2.3rem; font-weight: 600;' }
+        { heading: 'Bienvenue chez Gold Media', paragraph: 'Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.', background: 'url("../images/hero-background1.jpg")' },
+        { heading: 'Découvrez notre expertise', paragraph: 'Nous utilisons des outils avancés pour atteindre vos objectifs.', background: 'url("../images/hero-background2.jpg")' },
+        { heading: 'Nos outils sont à la pointe', paragraph: 'Optimisez vos campagnes avec des technologies modernes.', background: 'url("../images/hero-background3.jpg")' },
+        { heading: 'Atteignez de nouveaux sommets', paragraph: 'Nous vous aidons à exceller dans le monde numérique.', background: 'url("../images/hero-background4.jpg")' }
     ];
 
     let phraseIndex = 0;
-    const heroContent = document.querySelector('.hero-content h1');
+    const heroContent = document.querySelector('.hero-content');
+    const heroBackground = document.querySelector('.hero-background');
 
-    function changePhrase() {
+    function changeContent() {
         const currentPhrase = phrases[phraseIndex];
-        heroContent.textContent = currentPhrase.text;
-        heroContent.style = currentPhrase.style;
+        heroContent.querySelector('.hero-heading').textContent = currentPhrase.heading;
+        heroContent.querySelector('.hero-paragraph').textContent = currentPhrase.paragraph;
+        heroBackground.style.backgroundImage = currentPhrase.background;
+
+        heroContent.classList.remove('active');
+        setTimeout(() => {
+            heroContent.classList.add('active');
+        }, 10); // Petite pause pour déclencher l'animation de fade-in
 
         phraseIndex = (phraseIndex + 1) % phrases.length;
     }
 
-    setInterval(changePhrase, 4000);
+    changeContent(); // Initial call to set the first content
+    setInterval(changeContent, 4000); // Change every 4 seconds
 </script>
+
 
 </body>
 
