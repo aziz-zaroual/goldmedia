@@ -4,243 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Gold Media</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Gold Media</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* Inclus ici le CSS pour simplifier la gestion des styles */
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        header {
-            background-color: #292929;
-            color: #fece0a;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.3s;
-        }
-
-        header.scrolled {
-            background-color: #1f1f1f;
-        }
-
-        .logo-container img {
-            height: 100px;
-            width: auto;
-            transition: height 0.3s;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #fece0a;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ffffff;
-            transform: scale(1.1);
-        }
-
-        .hero {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-top: 80px;
-            /* Ajout d'un espace en haut */
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            transition: background-image 1s ease-in-out;
-        }
-
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-
-        .hero-heading,
-        .hero-paragraph {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .hero-content.active .hero-heading,
-        .hero-content.active .hero-paragraph {
-            opacity: 1;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .about,
-        .cta,
-        .why-choose,
-        .tools {
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-        }
-
-        .specialties {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .specialty {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            flex: 1 1 300px;
-        }
-
-        .specialty:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .specialty img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: opacity 0.3s;
-        }
-
-        .specialty img.loading {
-            opacity: 0.5;
-        }
-
-        .specialty h2 {
-            position: absolute;
-            bottom: 10px;
-            left: 20px;
-            color: #ffffff;
-            font-size: 1.5rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .charts-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .chart-container {
-            width: 90%;
-            max-width: 700px;
-            height: 350px;
-            margin: 20px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .chart-container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #292929;
-            color: #fece0a;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s;
-            margin-bottom: 40px;
-        }
-
-        .cta-button:hover {
-            background-color: #fece0a;
-            color: #292929;
-            transform: scale(1.05);
-        }
-
-        footer {
-            background-color: #292929;
-            color: #ffffff;
-            text-align: center;
-            padding: 15px 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .chart-container {
-                height: 250px;
-            }
-        }
-    </style>
 </head>
 
 <body>
     <header id="header">
         <div class="logo-container">
-            <img src="images/logo.jpg" alt="Gold Media by Derraji">
+            <img src="images/logo.png" alt="Logo Gold Media">
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="partners.html">Chiffres et Partenaires</a></li>
-                <li><a href="contact.html">Contactez-nous</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#why-choose">Pourquoi nous choisir</a></li>
+                <li><a href="#tools">Outils</a></li>
+                <li><a href="#charts">Statistiques</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <section class="hero">
             <div class="hero-background"></div>
@@ -250,37 +34,41 @@
                     nos outils innovants.</p>
             </div>
         </section>
-        <section class="about">
-            <h2>À Propos de Nous</h2>
-            <p>Nous sommes passionnés par le marketing digital et la technologie. Notre équipe est composée de
-                professionnels expérimentés qui travaillent ensemble pour offrir les meilleures solutions à nos clients.
-                Depuis notre création en 2010, nous avons aidé des entreprises de toutes tailles à améliorer leur
-                présence en ligne et à atteindre leurs objectifs.</p>
+
+        <section class="about" id="about">
+            <h2>À propos de nous</h2>
+            <p>Gold Media est une agence spécialisée dans l'optimisation des campagnes marketing. Nous utilisons des
+                outils innovants pour vous aider à atteindre vos objectifs.</p>
         </section>
-        <section class="why-choose">
-            <h2>Pourquoi Nous Choisir</h2>
-            <ul>
-                <li><strong>Expertise Personnalisée:</strong> Des stratégies adaptées aux besoins spécifiques de chaque
-                    client.</li>
-                <li><strong>Technologies Avancées:</strong> Utilisation des dernières technologies et outils de
-                    marketing.</li>
-                <li><strong>Résultats Mesurables:</strong> Analyse approfondie et reporting des performances.</li>
-            </ul>
+
+        <section class="why-choose" id="why-choose">
+            <h2>Pourquoi nous choisir ?</h2>
+            <div class="specialties">
+                <div class="specialty">
+                    <img src="images/real-estate.jpg" alt="Immobilier">
+                    <h2>Immobilier</h2>
+                </div>
+                <div class="specialty">
+                    <img src="images/hotel.jpg" alt="Hôtel">
+                    <h2>Hôtel</h2>
+                </div>
+                <div class="specialty">
+                    <img src="images/booking-airbnb.jpg" alt="Réservation">
+                    <h2>Réservation</h2>
+                </div>
+                <div class="specialty">
+                    <img src="images/car-rental.jpg" alt="Location de Voitures">
+                    <h2>Location de Voitures</h2>
+                </div>
+            </div>
         </section>
-        <section class="tools">
+
+        <section class="tools" id="tools">
             <h2>Nos Outils</h2>
-            <p>Nous utilisons une gamme d'outils et de technologies pour offrir les meilleurs résultats à nos clients.
-            </p>
-            <ul>
-                <li>Google Analytics</li>
-                <li>SEO Avancé</li>
-                <li>Publicité en Ligne</li>
-                <li>Outils de Marketing Automation</li>
-                <li>Analyse des Réseaux Sociaux</li>
-                <li>Optimisation des Réservations sur Plateformes Mondiales</li>
-            </ul>
+            <p>Nous utilisons une gamme d'outils avancés pour analyser et optimiser vos campagnes marketing.</p>
         </section>
-        <section class="charts-container">
+
+        <section class="charts-container" id="charts">
             <h2>Nos Statistiques</h2>
             <div class="chart-container">
                 <canvas id="chart1"></canvas>
@@ -289,6 +77,7 @@
                 <canvas id="chart2"></canvas>
             </div>
         </section>
+
         <section class="cta">
             <h2>Prêt à Passer à l'Action ?</h2>
             <p>Contactez-nous aujourd'hui pour discuter de vos objectifs marketing et découvrir comment nous pouvons
@@ -296,17 +85,19 @@
             <a href="contact.html" class="cta-button">Contactez-nous</a>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2024 Gold Media. Tous droits réservés.</p>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Dynamique du Hero Section
             const phrases = [
-                { heading: 'Bienvenue chez Gold Media', paragraph: 'Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.', background: 'url("../images/hero-background1.jpg")' },
-                { heading: 'Découvrez notre expertise', paragraph: 'Nous utilisons des outils avancés pour atteindre vos objectifs.', background: 'url("../images/hero-background2.jpg")' },
-                { heading: 'Nos outils sont à la pointe', paragraph: 'Optimisez vos campagnes avec des technologies modernes.', background: 'url("../images/hero-background3.jpg")' },
-                { heading: 'Atteignez de nouveaux sommets', paragraph: 'Nous vous aidons à exceller dans le monde numérique.', background: 'url("../images/hero-background4.jpg")' }
+                { heading: 'Bienvenue chez Gold Media', paragraph: 'Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.', background: 'url("images/hero-background1.jpg")' },
+                { heading: 'Découvrez notre expertise', paragraph: 'Nous utilisons des outils avancés pour atteindre vos objectifs.', background: 'url("images/hero-background2.jpg")' },
+                { heading: 'Nos outils sont à la pointe', paragraph: 'Optimisez vos campagnes avec des technologies modernes.', background: 'url("images/hero-background3.jpg")' },
+                { heading: 'Atteignez de nouveaux sommets', paragraph: 'Nous vous aidons à exceller dans le monde numérique.', background: 'url("images/hero-background4.jpg")' }
             ];
 
             let phraseIndex = 0;
