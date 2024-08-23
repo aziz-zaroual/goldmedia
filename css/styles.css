@@ -63,29 +63,7 @@ main {
     margin: 40px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 80px;
-    animation: backgroundAnimation 16s infinite ease-in-out;
-}
-
-@keyframes backgroundAnimation {
-    0% {
-        background-image: url('images/hero-background1.jpg');
-    }
-
-    25% {
-        background-image: url('images/hero-background2.jpg');
-    }
-
-    50% {
-        background-image: url('images/hero-background3.jpg');
-    }
-
-    75% {
-        background-image: url('images/hero-background4.jpg');
-    }
-
-    100% {
-        background-image: url('images/hero-background1.jpg');
-    }
+    transition: background-image 1s ease-in-out;
 }
 
 .hero-content {

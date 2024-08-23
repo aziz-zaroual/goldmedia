@@ -498,11 +498,22 @@
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+       document.addEventListener("DOMContentLoaded", function () {
+            const heroSection = document.querySelector(".hero");
             const heroContents = document.querySelectorAll(".hero-content");
+            const backgrounds = [
+                "images/hero-background1.jpg",
+                "images/hero-background2.jpg",
+                "images/hero-background3.jpg",
+                "images/hero-background4.jpg"
+            ];
             let currentIndex = 0;
 
-            function changeContent() {
+            function changeBackgroundAndContent() {
+                // Change background image
+                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+
+                // Show the correct hero content and hide the others
                 heroContents.forEach((content, index) => {
                     if (index === currentIndex) {
                         content.classList.add("active");
@@ -511,12 +522,14 @@
                     }
                 });
 
-                currentIndex = (currentIndex + 1) % heroContents.length;
+                // Move to the next background and content
+                currentIndex = (currentIndex + 1) % backgrounds.length;
             }
 
-            setInterval(changeContent, 4000);
-            changeContent(); // Initialize with the first content
+            setInterval(changeBackgroundAndContent, 4000);
+            changeBackgroundAndContent(); // Initialize with the first background and content
         });
+
     </script>
 
 </body>
