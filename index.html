@@ -329,6 +329,7 @@
                 <p>Adaptées à vos besoins spécifiques, nos services maximisent votre impact.</p>
             </div>
         </section>
+
         <section class="about">
             <h2>À Propos de Nous</h2>
             <p>Nous sommes passionnés par le marketing digital et la technologie. Notre équipe est composée de
@@ -498,31 +499,23 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const heroSection = document.querySelector(".hero");
             const heroContents = document.querySelectorAll(".hero-content");
-            const backgrounds = [
-                "images/hero-background1.jpg",
-                "images/hero-background2.jpg",
-                "images/hero-background3.jpg",
-                "images/hero-background4.jpg"
-            ];
             let currentIndex = 0;
 
-            function changeBackground() {
+            function changeContent() {
                 heroContents.forEach((content, index) => {
                     if (index === currentIndex) {
-                        content.classList.remove("hidden");
+                        content.classList.add("active");
                     } else {
-                        content.classList.add("hidden");
+                        content.classList.remove("active");
                     }
                 });
-                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
 
-                currentIndex = (currentIndex + 1) % backgrounds.length;
+                currentIndex = (currentIndex + 1) % heroContents.length;
             }
 
-            setInterval(changeBackground, 4000);
-            changeBackground(); // Initialize with the first background
+            setInterval(changeContent, 4000);
+            changeContent(); // Initialize with the first content
         });
     </script>
 
