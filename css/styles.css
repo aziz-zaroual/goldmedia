@@ -8,12 +8,19 @@ body {
 }
 
 header {
+    padding: 15px 20px;
+    /* Ajuste cette valeur pour une hauteur adéquate */
     background-color: #292929;
     color: #ffffff;
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
 }
 
 .logo-container {
@@ -53,13 +60,14 @@ main {
 }
 
 .hero {
-    padding-top: 14000px;
-    margin-top: 1000px;
+    padding-top: 180px;
+    /* Ajuste cette valeur selon la hauteur du header */
     position: relative;
     background-size: cover;
     background-position: center;
     color: #ffffff;
     padding: 180px 20px 60px;
+    /* Le premier padding correspond à l'espace créé par le header */
     text-align: center;
     border-radius: 10px;
     margin: 40px 20px;
