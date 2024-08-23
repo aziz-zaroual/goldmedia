@@ -57,12 +57,11 @@ main {
     background-size: cover;
     background-position: center;
     color: #ffffff;
-    padding: 120px 20px 60px;
+    padding: 180px 20px 60px;
+    /* Augmenter le padding-top ici */
     text-align: center;
     border-radius: 10px;
     margin: 40px 20px;
-    margin-top: 250px;
-    /* Augmente cette valeur pour créer plus d'espace */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-image 1s ease-in-out;
 }
