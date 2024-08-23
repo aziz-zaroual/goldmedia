@@ -60,14 +60,14 @@ main {
 }
 
 .hero {
-    padding-top: 180px;
-    /* Ajuste cette valeur selon la hauteur du header */
+    padding-top: 0;
+    /* Retire le padding-top statique */
     position: relative;
     background-size: cover;
     background-position: center;
     color: #ffffff;
     padding: 180px 20px 60px;
-    /* Le premier padding correspond à l'espace créé par le header */
+    /* Ce padding reste pour le contenu de la section */
     text-align: center;
     border-radius: 10px;
     margin: 40px 20px;

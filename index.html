@@ -497,46 +497,50 @@
             }
         });
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const heroSection = document.querySelector(".hero");
-            const heroContents = document.querySelectorAll(".hero-content");
-            const backgrounds = [
-                "images/hero-background1.jpg",
-                "images/hero-background2.jpg",
-                "images/hero-background3.jpg",
-                "images/hero-background4.jpg"
-            ];
-            let currentIndex = 0;
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heroSection = document.querySelector(".hero");
+        const heroContents = document.querySelectorAll(".hero-content");
+        const header = document.querySelector("header"); // Sélectionne le header
+        const backgrounds = [
+            "images/hero-background1.jpg",
+            "images/hero-background2.jpg",
+            "images/hero-background3.jpg",
+            "images/hero-background4.jpg"
+        ];
+        let currentIndex = 0;
 
-            function changeBackgroundAndContent() {
-                // Fade out the hero section
-                heroSection.classList.add("fade-out");
+        // Calculer la hauteur du header et l'ajouter en padding-top à la section hero
+        const headerHeight = header.offsetHeight;
+        heroSection.style.paddingTop = headerHeight + "px";
 
-                setTimeout(() => {
-                    // Change background image
-                    heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+        function changeBackgroundAndContent() {
+            // Fade out the hero section
+            heroSection.classList.add("fade-out");
 
-                    // Show the correct hero content and hide the others
-                    heroContents.forEach((content, index) => {
-                        content.classList.toggle("active", index === currentIndex);
-                    });
+            setTimeout(() => {
+                // Change background image
+                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
 
-                    // Fade in the hero section
-                    heroSection.classList.remove("fade-out");
-                    heroSection.classList.add("fade-in");
+                // Show the correct hero content and hide the others
+                heroContents.forEach((content, index) => {
+                    content.classList.toggle("active", index === currentIndex);
+                });
 
-                    // Move to the next background and content
-                    currentIndex = (currentIndex + 1) % backgrounds.length;
-                }, 1500); // Match the timing with the CSS transition
-            }
+                // Fade in the hero section
+                heroSection.classList.remove("fade-out");
+                heroSection.classList.add("fade-in");
 
-            setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
-            changeBackgroundAndContent(); // Initialize with the first background and content
-        });
+                // Move to the next background and content
+                currentIndex = (currentIndex + 1) % backgrounds.length;
+            }, 1500); // Match the timing with the CSS transition
+        }
 
+        setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
+        changeBackgroundAndContent(); // Initialize with the first background and content
+    });
+</script>
 
-    </script>
 
 </body>
 
