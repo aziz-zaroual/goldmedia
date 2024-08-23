@@ -498,7 +498,7 @@
         });
     </script>
     <script>
-       document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
             const heroSection = document.querySelector(".hero");
             const heroContents = document.querySelectorAll(".hero-content");
             const backgrounds = [
@@ -510,25 +510,31 @@
             let currentIndex = 0;
 
             function changeBackgroundAndContent() {
-                // Change background image
-                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+                // Fade out the hero section
+                heroSection.classList.add("fade-out");
 
-                // Show the correct hero content and hide the others
-                heroContents.forEach((content, index) => {
-                    if (index === currentIndex) {
-                        content.classList.add("active");
-                    } else {
-                        content.classList.remove("active");
-                    }
-                });
+                setTimeout(() => {
+                    // Change background image
+                    heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
 
-                // Move to the next background and content
-                currentIndex = (currentIndex + 1) % backgrounds.length;
+                    // Show the correct hero content and hide the others
+                    heroContents.forEach((content, index) => {
+                        content.classList.toggle("active", index === currentIndex);
+                    });
+
+                    // Fade in the hero section
+                    heroSection.classList.remove("fade-out");
+                    heroSection.classList.add("fade-in");
+
+                    // Move to the next background and content
+                    currentIndex = (currentIndex + 1) % backgrounds.length;
+                }, 1500); // Match the timing with the CSS transition
             }
 
-            setInterval(changeBackgroundAndContent, 4000);
+            setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
             changeBackgroundAndContent(); // Initialize with the first background and content
         });
+
 
     </script>
 
