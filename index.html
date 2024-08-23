@@ -311,8 +311,23 @@
     </header>
     <main>
         <section class="hero">
-            <h1>Bienvenue chez Gold Media</h1>
-            <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.</p>
+            <div class="hero-content">
+                <h1>Bienvenue chez Gold Media</h1>
+                <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.
+                </p>
+            </div>
+            <div class="hero-content hidden">
+                <h1>Nous innovons pour vos résultats</h1>
+                <p>Découvrez nos stratégies uniques pour booster votre visibilité en ligne.</p>
+            </div>
+            <div class="hero-content hidden">
+                <h1>Votre succès est notre mission</h1>
+                <p>Gold Media vous accompagne vers une croissance durable.</p>
+            </div>
+            <div class="hero-content hidden">
+                <h1>Des solutions sur mesure</h1>
+                <p>Adaptées à vos besoins spécifiques, nos services maximisent votre impact.</p>
+            </div>
         </section>
         <section class="about">
             <h2>À Propos de Nous</h2>
@@ -481,6 +496,36 @@
             }
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const heroSection = document.querySelector(".hero");
+            const heroContents = document.querySelectorAll(".hero-content");
+            const backgrounds = [
+                "images/hero-background1.jpg",
+                "images/hero-background2.jpg",
+                "images/hero-background3.jpg",
+                "images/hero-background4.jpg"
+            ];
+            let currentIndex = 0;
+
+            function changeBackground() {
+                heroContents.forEach((content, index) => {
+                    if (index === currentIndex) {
+                        content.classList.remove("hidden");
+                    } else {
+                        content.classList.add("hidden");
+                    }
+                });
+                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+
+                currentIndex = (currentIndex + 1) % backgrounds.length;
+            }
+
+            setInterval(changeBackground, 4000);
+            changeBackground(); // Initialize with the first background
+        });
+    </script>
+
 </body>
 
 </html>
