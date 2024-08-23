@@ -53,7 +53,7 @@ main {
 }
 
 .hero {
-    padding-top: 140px;
+    padding-top: 1400px;
     margin-top: 10px;
     position: relative;
     background-size: cover;
@@ -68,15 +68,13 @@ main {
 }
 
 .hero.fade-out {
-    padding-top: 140px;
-    margin-top: 10px;
+
     transform: scale(1.05);
     opacity: 0;
 }
 
 .hero.fade-in {
-    padding-top: 140px;
-    margin-top: 10px;
+
     transform: scale(1);
     opacity: 1;
 }
