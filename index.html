@@ -19,7 +19,6 @@
             background-color: #292929;
             color: #fece0a;
             padding: 10px 20px;
-            /* Réduit l'épaisseur de la barre de menu */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,7 +36,6 @@
 
         .logo-container img {
             height: 100px;
-            /* Agrandissement du logo */
             width: auto;
             transition: height 0.3s;
         }
@@ -67,16 +65,13 @@
 
         .hero {
             position: relative;
-            background: url('images/hero-background.jpg') no-repeat center center/cover;
+            background: url('images/hero-background1.jpg') no-repeat center center/cover;
             color: #ffffff;
-            padding: 100px 20px 60px;
-            /* Ajustement du padding pour ajouter un espace */
+            padding: 180px 20px 60px;
             text-align: center;
             border-radius: 10px;
             margin: 40px 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 80px;
-            /* Ajout d'un espace en haut */
         }
 
         .hero::before {
@@ -102,6 +97,18 @@
             font-size: 1.2rem;
             margin: 20px 0 0;
             z-index: 2;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
         }
 
         .section-header {
@@ -135,9 +142,7 @@
 
         .tool-image img {
             width: 100%;
-            /* Assure que l'image s'ajuste correctement */
             max-width: 100%;
-            /* Assure que l'image ne dépasse pas la largeur du conteneur */
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -196,9 +201,7 @@
         .chart-container {
             width: 90%;
             max-width: 700px;
-            /* Ajustement pour rendre les graphiques plus larges */
             height: 350px;
-            /* Augmentation de la hauteur pour plus de visibilité */
             margin: 20px 0;
             border-radius: 8px;
             overflow: hidden;
@@ -221,7 +224,6 @@
             font-weight: bold;
             transition: background-color 0.3s, transform 0.3s;
             margin-bottom: 40px;
-            /* Ajout de marge en bas */
         }
 
         .cta-button:hover {
@@ -235,9 +237,7 @@
             color: #ffffff;
             text-align: center;
             padding: 15px 20px;
-            /* Réduit l'épaisseur de la barre en bas */
             margin-top: 40px;
-            /* Ajout d'une marge en haut */
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -279,9 +279,7 @@
 
         .tool-image img {
             width: 100%;
-            /* Assure que l'image s'ajuste correctement */
             max-width: 100%;
-            /* Assure que l'image ne dépasse pas la largeur du conteneur */
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -399,15 +397,58 @@
         <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
     <script>
-        const header = document.getElementById('header');
-        window.onscroll = function () {
-            if (window.pageYOffset > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        };
+        document.addEventListener("DOMContentLoaded", function () {
+            const header = document.getElementById('header');
+            const heroSection = document.querySelector(".hero");
+            const heroContents = document.querySelectorAll(".hero-content");
+            const backgrounds = [
+                "images/hero-background1.jpg",
+                "images/hero-background2.jpg",
+                "images/hero-background3.jpg",
+                "images/hero-background4.jpg"
+            ];
+            let currentIndex = 0;
 
+            // Ajouter une classe 'scrolled' au header en fonction du défilement
+            window.onscroll = function () {
+                if (window.pageYOffset > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            };
+
+            // Calculer la hauteur du header et l'ajouter en margin-top à la section hero
+            const headerHeight = header.offsetHeight;
+            heroSection.style.marginTop = headerHeight + "px";
+
+            function changeBackgroundAndContent() {
+                // Fade out the hero section
+                heroSection.classList.add("fade-out");
+
+                setTimeout(() => {
+                    // Change background image
+                    heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+
+                    // Show the correct hero content and hide the others
+                    heroContents.forEach((content, index) => {
+                        content.classList.toggle("active", index === currentIndex);
+                    });
+
+                    // Fade in the hero section
+                    heroSection.classList.remove("fade-out");
+                    heroSection.classList.add("fade-in");
+
+                    // Move to the next background and content
+                    currentIndex = (currentIndex + 1) % backgrounds.length;
+                }, 1500); // Match the timing with the CSS transition
+            }
+
+            setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
+            changeBackgroundAndContent(); // Initialize with the first background and content
+        });
+
+        // Charger les images avec un effet de transition
         document.querySelectorAll('.specialty-image').forEach(img => {
             img.classList.add('loading');
             img.onload = () => {
@@ -415,6 +456,7 @@
             };
         });
 
+        // Chart.js graphs initialization
         const ctx1 = document.getElementById('chart1').getContext('2d');
         const chart1 = new Chart(ctx1, {
             type: 'bar',
@@ -423,16 +465,8 @@
                 datasets: [{
                     label: 'Croissance (%)',
                     data: [30, 45, 25],
-                    backgroundColor: [
-                        '#fece0a',
-                        '#292929',
-                        '#fece0a'
-                    ],
-                    borderColor: [
-                        '#292929',
-                        '#fece0a',
-                        '#292929'
-                    ],
+                    backgroundColor: ['#fece0a', '#292929', '#fece0a'],
+                    borderColor: ['#292929', '#fece0a', '#292929'],
                     borderWidth: 1
                 }]
             },
@@ -471,11 +505,7 @@
                 labels: ['Partenaires', 'Clients Satisfaits', 'Projets Réussis'],
                 datasets: [{
                     data: [40, 35, 25],
-                    backgroundColor: [
-                        '#292929',
-                        '#fece0a',
-                        '#292929'
-                    ],
+                    backgroundColor: ['#292929', '#fece0a', '#292929'],
                     borderColor: '#ffffff',
                     borderWidth: 2
                 }]
@@ -497,51 +527,6 @@
             }
         });
     </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const heroSection = document.querySelector(".hero");
-        const heroContents = document.querySelectorAll(".hero-content");
-        const header = document.querySelector("header"); // Sélectionne le header
-        const backgrounds = [
-            "images/hero-background1.jpg",
-            "images/hero-background2.jpg",
-            "images/hero-background3.jpg",
-            "images/hero-background4.jpg"
-        ];
-        let currentIndex = 0;
-
-        // Calculer la hauteur du header et l'ajouter en padding-top à la section hero
-        const headerHeight = header.offsetHeight;
-        heroSection.style.paddingTop = headerHeight + "px";
-
-        function changeBackgroundAndContent() {
-            // Fade out the hero section
-            heroSection.classList.add("fade-out");
-
-            setTimeout(() => {
-                // Change background image
-                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
-
-                // Show the correct hero content and hide the others
-                heroContents.forEach((content, index) => {
-                    content.classList.toggle("active", index === currentIndex);
-                });
-
-                // Fade in the hero section
-                heroSection.classList.remove("fade-out");
-                heroSection.classList.add("fade-in");
-
-                // Move to the next background and content
-                currentIndex = (currentIndex + 1) % backgrounds.length;
-            }, 1500); // Match the timing with the CSS transition
-        }
-
-        setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
-        changeBackgroundAndContent(); // Initialize with the first background and content
-    });
-</script>
-
-
 </body>
 
 </html>
