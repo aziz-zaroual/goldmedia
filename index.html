@@ -72,6 +72,8 @@
             border-radius: 10px;
             margin: 40px 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            /* Pour éviter l'agrandissement du cadre */
         }
 
         .hero::before {
@@ -87,10 +89,16 @@
         }
 
         .hero-content {
-            position: relative;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 2;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            width: 100%;
+            max-width: 800px;
+            /* Assurer un centrage horizontal */
         }
 
         .hero-content.active {
@@ -359,6 +367,25 @@
                 <li>Optimisation des Réservations sur Plateformes Mondiales</li>
             </ul>
         </section>
+        <section class="specialties">
+            <div class="specialty">
+                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières" class="specialty-image">
+                <h2>Gestion des Réservations Hôtelières</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/car-rental.jpg" alt="Plateformes de Location de Voitures" class="specialty-image">
+                <h2>Plateformes de Location de Voitures</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/real-estate.jpg" alt="Outils pour l'Immobilier" class="specialty-image">
+                <h2>Outils pour l'Immobilier</h2>
+            </div>
+            <div class="specialty">
+                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales"
+                    class="specialty-image">
+                <h2>Optimisation des Réservations sur Plateformes Mondiales</h2>
+            </div>
+        </section>
         <section class="counters-container">
             <div class="counter">
                 <h3>Hôtellerie</h3>
@@ -431,7 +458,7 @@
                 }, 1500); // Match the timing with the CSS transition
             }
 
-            setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
+            setInterval(changeBackgroundAndContent, 4000); // Adjust timing as needed
             changeBackgroundAndContent(); // Initialize with the first background and content
         });
 
@@ -451,6 +478,7 @@
                 }
             };
 
+            setInterval(updateCounter, 4000); // Change every 4 seconds
             updateCounter();
         });
     </script>
