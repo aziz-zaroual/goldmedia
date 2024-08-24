@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Gold Media</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -65,7 +64,8 @@
 
         .hero {
             position: relative;
-            background: url('images/hero-background1.jpg') no-repeat center center/cover;
+            background-size: cover;
+            background-position: center;
             color: #ffffff;
             padding: 180px 20px 60px;
             text-align: center;
@@ -86,17 +86,15 @@
             z-index: 1;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin: 0;
+        .hero-content {
+            position: relative;
             z-index: 2;
-            font-weight: 700;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin: 20px 0 0;
-            z-index: 2;
+        .hero-content.active {
+            opacity: 1;
         }
 
         .fade-out {
@@ -191,27 +189,30 @@
             border-radius: 5px;
         }
 
-        .charts-container {
+        .counters-container {
             display: flex;
-            flex-direction: column;
+            justify-content: space-around;
             align-items: center;
             padding: 20px;
-        }
-
-        .chart-container {
-            width: 90%;
-            max-width: 700px;
-            height: 350px;
-            margin: 20px 0;
+            background-color: #ffffff;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 40px 20px;
         }
 
-        .chart-container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .counter {
+            text-align: center;
+        }
+
+        .counter h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .counter .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fece0a;
         }
 
         .cta-button {
@@ -244,8 +245,8 @@
         }
 
         @media (max-width: 768px) {
-            .chart-container {
-                height: 250px;
+            .counters-container {
+                flex-direction: column;
             }
         }
 
@@ -309,20 +310,20 @@
     </header>
     <main>
         <section class="hero">
-            <div class="hero-content">
+            <div class="hero-content active">
                 <h1>Bienvenue chez Gold Media</h1>
                 <p>Nous transformons vos objectifs marketing en succès grâce à notre expertise et nos outils innovants.
                 </p>
             </div>
-            <div class="hero-content hidden">
+            <div class="hero-content">
                 <h1>Nous innovons pour vos résultats</h1>
                 <p>Découvrez nos stratégies uniques pour booster votre visibilité en ligne.</p>
             </div>
-            <div class="hero-content hidden">
+            <div class="hero-content">
                 <h1>Votre succès est notre mission</h1>
                 <p>Gold Media vous accompagne vers une croissance durable.</p>
             </div>
-            <div class="hero-content hidden">
+            <div class="hero-content">
                 <h1>Des solutions sur mesure</h1>
                 <p>Adaptées à vos besoins spécifiques, nos services maximisent votre impact.</p>
             </div>
@@ -358,32 +359,18 @@
                 <li>Optimisation des Réservations sur Plateformes Mondiales</li>
             </ul>
         </section>
-        <section class="specialties">
-            <div class="specialty">
-                <img src="images/hotel.jpg" alt="Gestion des Réservations Hôtelières" class="specialty-image">
-                <h2>Gestion des Réservations Hôtelières</h2>
+        <section class="counters-container">
+            <div class="counter">
+                <h3>Hôtellerie</h3>
+                <div class="number" data-target="50000">0</div>
             </div>
-            <div class="specialty">
-                <img src="images/car-rental.jpg" alt="Plateformes de Location de Voitures" class="specialty-image">
-                <h2>Plateformes de Location de Voitures</h2>
+            <div class="counter">
+                <h3>Location de Voitures</h3>
+                <div class="number" data-target="75000">0</div>
             </div>
-            <div class="specialty">
-                <img src="images/real-estate.jpg" alt="Outils pour l'Immobilier" class="specialty-image">
-                <h2>Outils pour l'Immobilier</h2>
-            </div>
-            <div class="specialty">
-                <img src="images/booking-airbnb.jpg" alt="Optimisation des Réservations sur Plateformes Mondiales"
-                    class="specialty-image">
-                <h2>Optimisation des Réservations sur Plateformes Mondiales</h2>
-            </div>
-        </section>
-        <section class="charts-container">
-            <h2 class="section-header">Chiffres et Statistiques</h2>
-            <div class="chart-container">
-                <canvas id="chart1"></canvas>
-            </div>
-            <div class="chart-container">
-                <canvas id="chart2"></canvas>
+            <div class="counter">
+                <h3>Immobilier</h3>
+                <div class="number" data-target="100000">0</div>
             </div>
         </section>
         <section class="cta">
@@ -396,60 +383,77 @@
     <footer>
         <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const header = document.getElementById('header');
-        const heroSection = document.querySelector(".hero");
-        const heroContents = document.querySelectorAll(".hero-content");
-        const backgrounds = [
-            "images/hero-background1.jpg",
-            "images/hero-background2.jpg",
-            "images/hero-background3.jpg",
-            "images/hero-background4.jpg"
-        ];
-        let currentIndex = 0;
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const header = document.getElementById('header');
+            const heroSection = document.querySelector(".hero");
+            const heroContents = document.querySelectorAll(".hero-content");
+            const backgrounds = [
+                "images/hero-background1.jpg",
+                "images/hero-background2.jpg",
+                "images/hero-background3.jpg",
+                "images/hero-background4.jpg"
+            ];
+            let currentIndex = 0;
 
-        // Ajouter une classe 'scrolled' au header en fonction du défilement
-        window.onscroll = function () {
-            if (window.pageYOffset > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            // Ajouter une classe 'scrolled' au header en fonction du défilement
+            window.onscroll = function () {
+                if (window.pageYOffset > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            };
+
+            // Calculer la hauteur du header et l'ajouter en margin-top à la section hero
+            const headerHeight = header.offsetHeight;
+            heroSection.style.marginTop = headerHeight + "px";
+
+            function changeBackgroundAndContent() {
+                // Fade out the hero section
+                heroSection.classList.add("fade-out");
+
+                setTimeout(() => {
+                    // Change background image
+                    heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+
+                    // Show the correct hero content and hide the others
+                    heroContents.forEach((content, index) => {
+                        content.classList.toggle("active", index === currentIndex);
+                    });
+
+                    // Fade in the hero section
+                    heroSection.classList.remove("fade-out");
+                    heroSection.classList.add("fade-in");
+
+                    // Move to the next background and content
+                    currentIndex = (currentIndex + 1) % backgrounds.length;
+                }, 1500); // Match the timing with the CSS transition
             }
-        };
 
-        // Calculer la hauteur du header et l'ajouter en margin-top à la section hero
-        const headerHeight = header.offsetHeight;
-        heroSection.style.marginTop = headerHeight + "px";
+            setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
+            changeBackgroundAndContent(); // Initialize with the first background and content
+        });
 
-        function changeBackgroundAndContent() {
-            // Fade out the hero section
-            heroSection.classList.add("fade-out");
+        // Initialisation des compteurs dynamiques
+        document.querySelectorAll('.counter .number').forEach(counter => {
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
 
-            setTimeout(() => {
-                // Change background image
-                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+                const increment = target / 200; // Ajuste cette valeur pour accélérer/ralentir le compteur
 
-                // Show the correct hero content and hide the others
-                heroContents.forEach((content, index) => {
-                    content.style.display = index === currentIndex ? 'block' : 'none';
-                });
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCounter, 10);
+                } else {
+                    counter.innerText = target.toLocaleString(); // Affiche le nombre final avec des séparateurs de milliers
+                }
+            };
 
-                // Fade in the hero section
-                heroSection.classList.remove("fade-out");
-                heroSection.classList.add("fade-in");
-
-                // Move to the next background and content
-                currentIndex = (currentIndex + 1) % backgrounds.length;
-            }, 1500); // Transition timing should match the CSS
-        }
-
-        // Initialize with the first background and content
-        changeBackgroundAndContent();
-        setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
-    });
-</script>
-
+            updateCounter();
+        });
+    </script>
 </body>
 
 </html>
