@@ -396,137 +396,60 @@
     <footer>
         <p>&copy; 2024 Gold Media by Derraji. Tous droits réservés.</p>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const header = document.getElementById('header');
-            const heroSection = document.querySelector(".hero");
-            const heroContents = document.querySelectorAll(".hero-content");
-            const backgrounds = [
-                "images/hero-background1.jpg",
-                "images/hero-background2.jpg",
-                "images/hero-background3.jpg",
-                "images/hero-background4.jpg"
-            ];
-            let currentIndex = 0;
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const header = document.getElementById('header');
+        const heroSection = document.querySelector(".hero");
+        const heroContents = document.querySelectorAll(".hero-content");
+        const backgrounds = [
+            "images/hero-background1.jpg",
+            "images/hero-background2.jpg",
+            "images/hero-background3.jpg",
+            "images/hero-background4.jpg"
+        ];
+        let currentIndex = 0;
 
-            // Ajouter une classe 'scrolled' au header en fonction du défilement
-            window.onscroll = function () {
-                if (window.pageYOffset > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            };
-
-            // Calculer la hauteur du header et l'ajouter en margin-top à la section hero
-            const headerHeight = header.offsetHeight;
-            heroSection.style.marginTop = headerHeight + "px";
-
-            function changeBackgroundAndContent() {
-                // Fade out the hero section
-                heroSection.classList.add("fade-out");
-
-                setTimeout(() => {
-                    // Change background image
-                    heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
-
-                    // Show the correct hero content and hide the others
-                    heroContents.forEach((content, index) => {
-                        content.classList.toggle("active", index === currentIndex);
-                    });
-
-                    // Fade in the hero section
-                    heroSection.classList.remove("fade-out");
-                    heroSection.classList.add("fade-in");
-
-                    // Move to the next background and content
-                    currentIndex = (currentIndex + 1) % backgrounds.length;
-                }, 1500); // Match the timing with the CSS transition
+        // Ajouter une classe 'scrolled' au header en fonction du défilement
+        window.onscroll = function () {
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+        };
 
-            setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
-            changeBackgroundAndContent(); // Initialize with the first background and content
-        });
+        // Calculer la hauteur du header et l'ajouter en margin-top à la section hero
+        const headerHeight = header.offsetHeight;
+        heroSection.style.marginTop = headerHeight + "px";
 
-        // Charger les images avec un effet de transition
-        document.querySelectorAll('.specialty-image').forEach(img => {
-            img.classList.add('loading');
-            img.onload = () => {
-                img.classList.remove('loading');
-            };
-        });
+        function changeBackgroundAndContent() {
+            // Fade out the hero section
+            heroSection.classList.add("fade-out");
 
-        // Chart.js graphs initialization
-        const ctx1 = document.getElementById('chart1').getContext('2d');
-        const chart1 = new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: ['Hôtellerie', 'Location de Voitures', 'Immobilier'],
-                datasets: [{
-                    label: 'Croissance (%)',
-                    data: [30, 45, 25],
-                    backgroundColor: ['#fece0a', '#292929', '#fece0a'],
-                    borderColor: ['#292929', '#fece0a', '#292929'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function (value) {
-                                return value + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
+            setTimeout(() => {
+                // Change background image
+                heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
 
-        const ctx2 = document.getElementById('chart2').getContext('2d');
-        const chart2 = new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: ['Partenaires', 'Clients Satisfaits', 'Projets Réussis'],
-                datasets: [{
-                    data: [40, 35, 25],
-                    backgroundColor: ['#292929', '#fece0a', '#292929'],
-                    borderColor: '#ffffff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+                // Show the correct hero content and hide the others
+                heroContents.forEach((content, index) => {
+                    content.style.display = index === currentIndex ? 'block' : 'none';
+                });
+
+                // Fade in the hero section
+                heroSection.classList.remove("fade-out");
+                heroSection.classList.add("fade-in");
+
+                // Move to the next background and content
+                currentIndex = (currentIndex + 1) % backgrounds.length;
+            }, 1500); // Transition timing should match the CSS
+        }
+
+        // Initialize with the first background and content
+        changeBackgroundAndContent();
+        setInterval(changeBackgroundAndContent, 5000); // Adjust timing as needed
+    });
+</script>
+
 </body>
 
 </html>
