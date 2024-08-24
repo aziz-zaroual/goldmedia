@@ -29,6 +29,13 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        .logo-container img {
+            height: 100px;
+            /* Ajusté pour correspondre à la page index.html */
+            width: auto;
+            transition: height 0.3s;
+        }
+
         nav ul {
             list-style-type: none;
             margin: 0;
@@ -53,7 +60,8 @@
         }
 
         main {
-            padding: 20px;
+            padding: 100px 20px 20px;
+            /* Ajout de padding-top pour créer un espace en haut */
             max-width: 1000px;
             margin: 0 auto;
             background-color: #fff;
@@ -158,16 +166,6 @@
             transform: scale(1.05);
         }
 
-        .team-member h3 {
-            margin-top: 15px;
-            color: #292929;
-        }
-
-        .team-member p {
-            font-size: 16px;
-            color: #666;
-        }
-
         .activity-section {
             margin: 40px 0;
         }
@@ -181,6 +179,17 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s forwards 0.5s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .activity img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .activity h3 {
@@ -231,28 +240,40 @@
 
         <section class="activity-section">
             <div class="activity">
-                <h3>Marketing Digital</h3>
-                <p>Nous offrons une gamme complète de services de marketing digital, incluant le référencement SEO, la
-                    gestion des réseaux sociaux, et la publicité en ligne. Notre expertise permet à nos clients
-                    d'améliorer leur visibilité en ligne et de capturer l'attention de leur public cible.</p>
+                <img src="images/marketing.jpg" alt="Marketing Digital">
+                <div>
+                    <h3>Marketing Digital</h3>
+                    <p>Nous offrons une gamme complète de services de marketing digital, incluant le référencement SEO,
+                        la gestion des réseaux sociaux, et la publicité en ligne. Notre expertise permet à nos clients
+                        d'améliorer leur visibilité en ligne et de capturer l'attention de leur public cible.</p>
+                </div>
             </div>
             <div class="activity">
-                <h3>Gestion Immobilière</h3>
-                <p>Gold Media propose des solutions de gestion immobilière qui optimisent la rentabilité et l'efficacité
-                    des biens de nos clients. Nous gérons tout, de la maintenance à la location, en passant par la
-                    commercialisation des propriétés.</p>
+                <img src="images/real-estate.jpg" alt="Gestion Immobilière">
+                <div>
+                    <h3>Gestion Immobilière</h3>
+                    <p>Gold Media propose des solutions de gestion immobilière qui optimisent la rentabilité et
+                        l'efficacité des biens de nos clients. Nous gérons tout, de la maintenance à la location, en
+                        passant par la commercialisation des propriétés.</p>
+                </div>
             </div>
             <div class="activity">
-                <h3>Solutions de Gestion Numérisée</h3>
-                <p>Nous développons des systèmes de gestion numérisée qui simplifient les processus d'entreprise. Ces
-                    solutions incluent des outils de gestion des réservations, de la facturation, et du suivi des
-                    performances, adaptés aux besoins spécifiques de chaque client.</p>
+                <img src="images/booking-airbnb.jpg" alt="Solutions de Gestion Numérisée">
+                <div>
+                    <h3>Solutions de Gestion Numérisée</h3>
+                    <p>Nous développons des systèmes de gestion numérisée qui simplifient les processus d'entreprise.
+                        Ces solutions incluent des outils de gestion des réservations, de la facturation, et du suivi
+                        des performances, adaptés aux besoins spécifiques de chaque client.</p>
+                </div>
             </div>
             <div class="activity">
-                <h3>Optimisation des Plateformes Internationales</h3>
-                <p>Nous aidons nos clients à maximiser leur efficacité sur les plateformes de réservation
-                    internationales telles que Airbnb, Booking.com, et Expedia. Notre expertise permet d'améliorer les
-                    taux d'occupation, de gérer les avis clients, et d'optimiser les prix en temps réel.</p>
+                <img src="images/hotel.jpg" alt="Optimisation des Plateformes Internationales">
+                <div>
+                    <h3>Optimisation des Plateformes Internationales</h3>
+                    <p>Nous aidons nos clients à maximiser leur efficacité sur les plateformes de réservation
+                        internationales telles que Airbnb, Booking.com, et Expedia. Notre expertise permet d'améliorer
+                        les taux d'occupation, de gérer les avis clients, et d'optimiser les prix en temps réel.</p>
+                </div>
             </div>
         </section>
 
